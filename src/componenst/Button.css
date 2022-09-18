@@ -3,7 +3,7 @@
 }
 
 .btn {
-  margin: 30px;
+  margin: 15px;
   padding: 8px 20px;
   border-radius: 4px;
   outline: none;
@@ -109,5 +109,21 @@
 }
 
 .green:hover {
-  background-color: #242424;
+  background-color: #354a62;
+}
+@media screen and (max-width: 920px) {
+  .btn{
+    margin: 10px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+
+
+  .btn--medium{
+    padding: 7px 10px;
+    font-size: 14px;
+    margin: -20px;
+  }
 }

@@ -9,26 +9,31 @@ function HeroSection() {
     <div className='hero-container'>
      <img class='hero-images' src ={image}></img>
      
-      
-      <h2>GMCO LIVE</h2>
       <p>What are you waiting for?</p>
-      <div className='hero-btns'>
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
+      <h2>GMCO Live from the Living Room:<br/>Indonesia Pop Now and Then</h2>
+      
+      <div class="multi-item">
+        <button class="multi-button_button">Saturday</button>
+        <button class="multi-button_button">12/10/2022</button>
+        <button class="multi-button_button"> Auditorium MM FEB UGM</button>
+        
+        <Button 
+          className='btn-buy'
+          buttonStyle='primary'
+          buttonSize='btn--medium'
+          buttonColor='green'
         >
-          GET STARTED
+          Buy Ticket Now!
         </Button>
-        <Button
-          className='btns'
-          buttonStyle='btn--primary'
-          buttonSize='btn--large'
-          onClick={console.log('hey')}
-        >
-          WATCH TRAILER <i className='far fa-play-circle' />
-        </Button>
+        
+          
+        
+        
       </div>
+      
+      
+      
+
     </div>
   );
 }
