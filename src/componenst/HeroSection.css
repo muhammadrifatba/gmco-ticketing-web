@@ -24,22 +24,22 @@
  
 }
 .hero-container> p {
-  margin-left: -72%;
+  margin-left: -76vw;
   margin-top: -40px;
   
 
 
   border-radius: 1px red;
   color: #fff;
-  font-size: 32px;
+  font-size: 3.5vmin ;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
 
 .hero-container> h2 {
-  margin-left: -42%;
+  margin-left: -43vw;
   color: #fff;
-  font-size: 50px;
+  font-size: 6.5vmin;
   margin-top: 10px;
 }
 
@@ -109,15 +109,19 @@
 
 @media screen and (max-width: 960px) {
   .hero-container> h2 {
-    font-size: 45px;
+    margin-left: 3vw;
     margin-top: 5px;
   }
 
   .multi-item{
-    margin-left: -15%;
+    margin-left: -10%;
     margin-right: 10%;
     margin: -15 px;
 
+  }
+
+  .hero-container>P{
+    margin-left: -55%;
   }
 
   .multi-button_button{
@@ -130,19 +134,18 @@
 @media screen and (max-width: 768px) {
   .hero-container > h2 {
     margin-left: 2%;
-    font-size: 40px;
     margin-bottom: 50px;
   }
 
   .hero-container > p {
-    margin-right: -34%;
-    font-size: 25px;
+    margin-right:2vw;
+    
   }
 
   
   .multi-item{
 
-    margin-left:7px ;
+    margin-left:2vw ;
     margin-top: -5px;
     
   }
@@ -155,8 +158,20 @@
   }
 
   .multi-item > Button{
-    margin-left: 20px;
+    margin-left: 7vw;
+    
+
   }
+
+  @media screen and (min-width: 325px) and (max-width: 690px) {
+    .hero-container > p{
+      margin-right: -1vw;
+
+    }
+
+  }
+
+  
 
 
   

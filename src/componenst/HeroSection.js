@@ -18,7 +18,7 @@ function HeroSection() {
         <button class="multi-button_button"> Auditorium MM FEB UGM</button>
         
         <Button 
-          className='btn-buy'
+          className='btn btn-a'
           buttonStyle='primary'
           buttonSize='btn--medium'
           buttonColor='green'
