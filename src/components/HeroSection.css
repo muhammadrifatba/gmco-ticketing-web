@@ -2,18 +2,16 @@
   object-fit: cover;
   width: 100%;
   height: 126.3vh;
-  position: fixed;
+  position: absolute;
   z-index: -1;
   margin-top: -100px;
   background-attachment: scroll;
-  
+  object-position: 75%;
   
 
 }
 
 .hero-container {
-  
-
   height: 100vh;
   width: 100%;
   display: flex;

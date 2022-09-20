@@ -1,9 +1,9 @@
 
 import './App.css';
-import Navbar from './componenst/Navbar';
-import Home from './componenst/pages/HomePage/Home';
+import Navbar from './components/Navbar';
+import Home from './components/pages/HomePage/Home';
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom'
-
+import FormOne from './components/FormOne';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
-
+          <Route path='/FormOne' element={<FormOne/>} />
         </Routes>
     </Router>
   );
