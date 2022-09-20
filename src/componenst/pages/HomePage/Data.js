@@ -1,7 +1,7 @@
 export const homeObjOne = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
   topLine: 'DTETI Election 2021',
   headline: 'Dont forget Vote ',
   description:

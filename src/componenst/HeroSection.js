@@ -2,7 +2,7 @@ import React from 'react';
 import './HeroSection.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import image from '../images/herotemp.jpg';
+import image from '../images/herov1.png';
 import sp from '../images/salpriadi.jpg';
 function HeroSection() {
   return (
