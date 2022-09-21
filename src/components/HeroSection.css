@@ -6,9 +6,8 @@
   z-index: -1;
   margin-top: -100px;
   background-attachment: scroll;
+  object-position: 70%;
   object-position: 75%;
-  
-
 }
 
 .hero-container {
@@ -137,6 +136,7 @@
     
   
   }
+
   .hero-container > h2 {
     margin-left: 2%;
     margin-bottom: 50px;
