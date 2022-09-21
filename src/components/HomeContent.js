@@ -12,6 +12,7 @@ function HeroContent({
   lightTextDesc,
   headline,
   description,
+  description2,
   buttonLabel,
   img,
   alt,
@@ -51,6 +52,16 @@ function HeroContent({
                   }
                 >
                   {description}
+                </p>
+                <br/>
+                <p
+                  className={
+                    lightTextDesc
+                      ? 'home__hero-subtitle'
+                      : 'home__hero-subtitle dark'
+                  }
+                >
+                  {description2}
                 </p>
                 <a href='#1'>
                   <Button buttonSize='btn--wide' buttonColor='blue'>

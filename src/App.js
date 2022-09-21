@@ -1,7 +1,8 @@
 
 import './App.css';
-import Navbar from './componenst/Navbar';
-import Home from './componenst/pages/HomePage/Home';
+import Navbar from './components/Navbar';
+import Home from './components/pages/HomePage/Home';
+import Footer from './components/Footer'
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom'
 
 
@@ -13,6 +14,7 @@ function App() {
           <Route path='/' element={<Home/>} />
 
         </Routes>
+        <Footer/>
     </Router>
   );
 }

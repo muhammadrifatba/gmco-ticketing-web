@@ -2,12 +2,11 @@
   object-fit: cover;
   width: 100%;
   height: 126.3vh;
-  position: fixed;
+  position: absolute;
   z-index: -1;
   margin-top: -100px;
   background-attachment: scroll;
-  
-  
+  object-position: 70%;
 
 }
 
@@ -135,10 +134,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .hero-images{
-    
   
-  }
   .hero-container > h2 {
     margin-left: 2%;
     margin-bottom: 50px;
