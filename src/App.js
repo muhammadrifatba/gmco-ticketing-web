@@ -2,9 +2,10 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/pages/HomePage/Home';
+
 import Footer from './components/Footer'
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom'
-
+import FormOne from './components/FormOne';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
-
+          <Route path='/FormOne' element={<FormOne/>} />
         </Routes>
         <Footer/>
     </Router>

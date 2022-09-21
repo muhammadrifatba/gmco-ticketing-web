@@ -7,12 +7,10 @@
   margin-top: -100px;
   background-attachment: scroll;
   object-position: 70%;
-
+  object-position: 75%;
 }
 
 .hero-container {
-  
-
   height: 100vh;
   width: 100%;
   display: flex;
@@ -134,7 +132,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .hero-images{
+    
   
+  }
+
   .hero-container > h2 {
     margin-left: 2%;
     margin-bottom: 50px;
