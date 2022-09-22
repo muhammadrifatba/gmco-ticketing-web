@@ -13,19 +13,14 @@ import {
 function Footer() {
   return (
     <div className='footer-container'>
-      <section className='footer-subscription'>
-        <p className='footer-subscription-heading'>
-          Contact us for further information
-        </p>
-      </section>
       <section className='social-media'>
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              GMCO Live
+              GMCO LIVE
             </Link>
           </div>
-          <small className='website-rights'>GMCO © 2023</small>
+          <small className='website-rights'>GMCO © 2021</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'
