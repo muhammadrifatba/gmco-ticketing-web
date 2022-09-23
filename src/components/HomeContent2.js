@@ -1,11 +1,11 @@
 import React from 'react';
-import './HomeContent.css';
+import './HomeContent2.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 
 
-function HeroContent({
+function HomeContent2({
   lightBg,
   topLine,
   lightText,
@@ -58,7 +58,7 @@ function HeroContent({
                   {description2}
                 </p>
                 <a href='#1'>
-                  <Button buttonSize='btn--wide' buttonColor='green'>
+                  <Button buttonSize='btn--wide' buttonColor='red'>
                     {buttonLabel}
                   </Button>
                 </a>
@@ -80,4 +80,4 @@ function HeroContent({
   );
 }
 
-export default HeroContent;
+export default HomeContent2;
