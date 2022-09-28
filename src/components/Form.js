@@ -7,7 +7,7 @@ const App = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
+    phoneNo: "",
   });
 
   const inputs = [
@@ -40,10 +40,11 @@ const App = () => {
     },
     {
       id: 4,
-      name: "phone",
-      type: "number",
+      name: "phoneNo",
+      type: "text",
       placeholder: "08xxxxxxxxxx",
       label: "Nomor Telepon",
+      pattern: "^[0-9]{1,20}$",
       required: true,
     },
   ];
