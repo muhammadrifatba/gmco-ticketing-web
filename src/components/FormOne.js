@@ -2,8 +2,8 @@ import {useState} from "react";
 import './FormOne.css';
 
 const FormOne = () => {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+    const [title, setTitle] = useState('John');
+    const [body, setBody] = useState('Doe');
     return (
         <div className="form">
             <h2>Add a New Blog</h2>
