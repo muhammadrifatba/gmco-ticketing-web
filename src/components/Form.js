@@ -1,13 +1,17 @@
+import axios from "axios";
 import { useState } from "react";
+import { FaBlackTie } from "react-icons/fa";
 import "./Form.css";
 import FormInput from "./FormInput";
+
+const URI = "http://10.10.2.96";
 
 const App = () => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    phoneNo: "",
+    phoneNo: ""
   });
 
   const inputs = [
@@ -18,7 +22,7 @@ const App = () => {
       placeholder: "John",
       label: "Nama Depan",
       pattern: "^[A-Za-z]{1,20}$",
-      required: true,
+      required: true
     },
     {
       id: 2,
@@ -27,7 +31,7 @@ const App = () => {
       placeholder: "Doe",
       label: "Nama Depan",
       pattern: "^[A-Za-z]{1,20}$",
-      required: true,
+      required: true
     },
     {
       id: 3,
@@ -36,7 +40,7 @@ const App = () => {
       placeholder: "johndoe123@example.com",
       errorMessage: "Email harus valid.",
       label: "Email",
-      required: true,
+      required: true
     },
     {
       id: 4,
@@ -45,12 +49,22 @@ const App = () => {
       placeholder: "08xxxxxxxxxx",
       label: "Nomor Telepon",
       pattern: "^[0-9]{1,20}$",
-      required: true,
+      required: true
     },
   ];
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(values);
+    axios.post(URI.concat('/api/v1/ticketing/order'),{
+      first_name: values.firstName,
+      last_name: values.lastName,
+      phone: values.phoneNo,
+      email: values.email
+    }).then(res=>{
+      console.log(res.values);
+    })
+
   };
 
   const onChange = (e) => {

@@ -19,8 +19,6 @@ function App() {
           <Route path='/BuyTicket' element={<TicketReservation/>}/>
           <Route path='/1' element={<SeatDum/>}/>
           <Route path='/Form' element={<Form/>}/>
-          
-
         </Routes>
         <Footer/>
     </Router>
