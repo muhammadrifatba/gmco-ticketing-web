@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom'
 import SeatFunc from './components/SeatFunc'
 import TicketReservation from './components/pages/TicketReservation/TicketReservation';
 import SeatDum from './components/SeatDum';
+import Form from './components/Form';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/BuyTicket' element={<TicketReservation/>}/>
           <Route path='/1' element={<SeatDum/>}/>
+          <Route path='/Form' element={<Form/>}/>
           
 
         </Routes>
