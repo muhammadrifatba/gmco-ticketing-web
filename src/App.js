@@ -12,7 +12,8 @@ import {
 import SeatFunc from './components/SeatFunc'
 import TicketReservation from './components/pages/TicketReservation/TicketReservation';
 import SeatDum from './components/SeatDum';
-import FormOne from './components/FormOne';
+import Form from './components/Form';
+
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/BuyTicket' element={<TicketReservation/>}/>
           <Route path='/1' element={<SeatDum/>}/>
-          <Route path='/FormOne' element={<FormOne/>} />
+          <Route path='/Form' element={<Form/>}/>
         </Routes>
         <Footer/>
     </Router>
