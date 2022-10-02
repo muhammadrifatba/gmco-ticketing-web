@@ -8,45 +8,47 @@ function SeatDum() {
   // const[selectingSeats,setSelectingSeats] = useState([])
   // const[selectedSeats,setSelectedSeats]=useState([])
 
-  //Get Data
+  // Seat Mapping
+  const seatsColumnsr1  = [ '', '',  '',  '',  '',   '',  '', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
+  const seatsColumnsr2  = [ '', '',  '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28',   '',   ''];
+  const seatsColumns    = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumns_2  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15',   '',   '',   '',   '',   '',   '', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
+
+  //Unnecesary Seat
+  const exRow = [ 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A24', 'A25', 'A26', 'A27', 'A28', 'A29', 'A30', 
+                  'B1', 'B2', 'B29', 'B30', 
+                  'M16', 'M17', 'M18', 'M19', 'M20', 'M21',
+                  'O17', 'O18', 'O19', 'O20', 'O21', 'O22' ]
+
+  //Get Seat Data
   useEffect(() => {    
     axios
-      // ini dummy api
-      .get('https://mocki.io/v1/72872d70-2be4-42cf-9fbd-2b77b69af398')
+      .get('https://dev.bekisar.net/api/v1/ticketing/booking')
       .then(res => {
-        //console.log(res)
         setSeats(res.data)
       })
       .catch(err => {
-        //console.log(err)
       })
   }, [])
 
-  // console.log(seats)
-
-  // useEffect(function(){
-  //   axios.get('https://dev.bekisar.net/api/v1/ticketing/booking')
-  //   .then(function(response) {
-  //     const seats = response.data;
-  //     for(let i=0;i<seats.length;i++){
-  //       if(seats[i].is_reserved === 'available/green'){
-  //         document.getElementById(seats[i].name).setAttribute("disabled", true)
-  //         console.log(seats[i])
-  //       }
-  //     }
-  //   })
-  // },[])
-
-  console.log(seats)
-
+  // Remove Unnecesary Seat
+  for(let i=0; i < exRow.length; i++) {
+    for(let j=0; j < seats.length; j++) {
+      if (seats[j].name === exRow[i]) {
+        seats.splice(j,1);
+      }
+    }
+  }
+  
+  // Make Purchased Seats to Red and Unclickable
   for(let i=0;i<seats.length;i++){
     if(seats[i].is_reserved === 'available/green'){
       document.getElementById(seats[i].name).setAttribute("disabled", true)
     }
   }
-
-  //console.log(seats)
-
+  
   // const choiceSeat = (seat) => {
   //   const newBookedSeats = setSelectingSeats([...selectingSeats,(seat)])
   //   setSelectingSeats(newBookedSeats)
@@ -64,13 +66,6 @@ function SeatDum() {
   //     alert('Please Select Seats')
   //   }
   // };
-
-  const seatsColumnsr1=['','','','','','','','8','9', '','10', '11', '12', '13', '14', '15', '16','17','18','19','20','21','','22','23','','','','','','',''];
-  const seatsColumnsr2=['', '', '3', '4', '5','6','7','8','9', '' , '10', '11', '12', '13', '14', '15', '16','17','18','19','20','21', '','22','23','24','25','26','27','28','',''];
-  const seatsColumns = ['1', '2', '3', '4', '5','6','7','8','9', '' , '10', '11', '12', '13', '14', '15', '16','17','18','19','20','21', '','22','23','24','25','26','27','28','29','30'];
-  const seatsColumns_2 = ['1', '2', '3', '4', '5','6','7','8','9', '', '10', '11', '12', '13', '14', '15', '','','','','','','','22','23','24','25','26','27','28','29','30'];
-  const seatsColumns_1 = ['1', '2', '3', '4', '5','6','7','8','9', '', '10', '11', '12', '13', '14', '15', '16','','','','','','','','23','24','25','26','27','28','29','30'];
-  const seatsRows = ['A', 'B','C', 'D', 'E','F','G', '', 'H', 'I', 'J', 'K', 'L','M','','O'];
   
   const seatsGenerator = () => {
     return (
@@ -220,6 +215,6 @@ function SeatDum() {
       </div>
     </div>
   );
-  }
+}
 
 export default SeatDum
