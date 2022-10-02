@@ -59,11 +59,11 @@
 .btn--mobile:hover {
   transition: all 0.3s ease-out;
   background: #fff;
-  color: #242424;
+  color: #e3b386;
 }
 
 .btn--wide:hover {
-  color: #fff;
+  color: #e3b386;
   background-color: #f00946;
   transition: all 0.2s ease-out;
 }
@@ -110,6 +110,11 @@
 
 .green:hover {
   background-color: #354a62;
+}
+
+.red:hover {
+  background-color: #e3b386;
+  color: white;
 }
 @media screen and (max-width: 920px) {
   .btn{

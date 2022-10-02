@@ -1,0 +1,42 @@
+td{
+  text-align: center;
+}
+
+.seatGap, .seatVGap{
+  content: "";
+  width: 25px;
+  height: 18px;
+}
+
+input[type=checkbox] {
+  width: 13px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+input[type=checkbox]:before {
+  content: "";
+  width: 25px;
+  height: 18px;
+  border-radius: 5px;
+
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  border: 3px solid #ff9800;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  background-color: #ffffff;
+}
+
+input[type=checkbox]:checked:before {
+  background-color: Green;
+  font-size: 15px;
+}
+
+/*--//responsive--*/
+
+input:disabled::before {
+  background-color: red;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import './HomeContent.css';
+import './HomeContent2.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 
 
-function HomeContent({
+function HomeContent2({
   lightBg,
   topLine,
   lightText,
@@ -31,12 +31,6 @@ function HomeContent({
               flexDirection: imgStart === 'start' ? 'row-reverse' : 'row'
             }}
           >
-            
-            <div className='col'>
-              <div className='home__hero-img-wrapper'>
-                <img src={img} alt={alt} className='home__hero-img' />
-              </div>
-            </div>
 
             <div className='col'>
               <div className='home__hero-text-wrapper'>
@@ -64,7 +58,7 @@ function HomeContent({
                   {description2}
                 </p>
                 <a href='#1'>
-                  <Button buttonSize='btn--wide' buttonColor='green'>
+                  <Button buttonSize='btn--wide' buttonColor='red'>
                     {buttonLabel}
                   </Button>
                 </a>
@@ -72,6 +66,13 @@ function HomeContent({
                 
               </div>
             </div>
+            <div className='col'>
+              <div className='home__hero-img-wrapper'>
+                <img src={img} alt={alt} className='home__hero-img' />
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -79,4 +80,4 @@ function HomeContent({
   );
 }
 
-export default HomeContent;
+export default HomeContent2;
