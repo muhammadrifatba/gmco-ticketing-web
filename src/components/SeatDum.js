@@ -9,11 +9,11 @@ function SeatDum() {
   // const[selectedSeats,setSelectedSeats]=useState([])
 
   // Seat Mapping
-  const seatsColumnsr1  = [ '', '',  '',  '',  '',   '',  '', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
-  const seatsColumnsr2  = [ '', '',  '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28',   '',   ''];
-  const seatsColumns    = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
-  const seatsColumns_2  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15',   '',   '',   '',   '',   '',   '', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
-  const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
+  const seatsColumnsr2  = [ '', '',  '3', '4', '5', '6', '7', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28',   '',   ''];
+  const seatsColumns    = ['1', '2', '3', '4', '5', '6', '7', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumns_2  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',   '', '10', '11', '12', '13', '14', '15',   '',   '',   '',   '',   '',   '', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
   //Unnecesary Seat
@@ -96,7 +96,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                      <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                      <input 
+                        onClick={() => this.choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -117,7 +123,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => this.choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                   )
               })}
@@ -139,7 +151,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => this.choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -160,7 +178,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     : 
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => this.choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -179,7 +203,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => this.choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
