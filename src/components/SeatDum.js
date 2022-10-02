@@ -4,7 +4,7 @@ import './SeatDum.css'
 
 function SeatDum() {
   const[seats, setSeats] = useState([])
-  const[selectingSeats,setSelectingSeats] = useState([])
+  let[selectingSeats,setSelectingSeats] = useState([])
 
   // Seat Mapping
   const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
@@ -63,8 +63,24 @@ function SeatDum() {
   }
 
   const SelectSeats = () => {
-    const Selected = selectingSeats
-    console.log(Selected)
+    let Selected = selectingSeats
+
+    //UNIQUE CHECKER
+    //callback function
+    function isUnique(value, index, array) {
+      return array.indexOf(value) === array.lastIndexOf(value);
+    }
+
+    //checking if seats are unique
+    const seatsAreUnique = Selected.every(isUnique);
+    console.log(seatsAreUnique);
+
+    //filter unique seats
+    const uniqueSeats = Selected.filter(isUnique);
+    console.log(uniqueSeats);
+
+    Selected = uniqueSeats
+
     if(Selected.length !== 0)
     {
       axios
@@ -260,5 +276,12 @@ function SeatDum() {
     </div>
   );
 }
+
+//unique seats checker
+function isUnique(value, index, array) {
+  return array.indexOf(value) === array.lastIndexOf(value);
+}
+
+
 
 export default SeatDum
