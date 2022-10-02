@@ -29,7 +29,7 @@ const App = () => {
       name: "lastName",
       type: "text",
       placeholder: "Doe",
-      label: "Nama Depan",
+      label: "Nama Belakang",
       pattern: "^[A-Za-z]{1,20}$",
       required: true
     },

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './SeatDum.css'
+import {Link} from 'react-router-dom';
 
 function SeatDum() {
   const[seats, setSeats] = useState([])
@@ -14,7 +15,7 @@ function SeatDum() {
   const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
-  //Unnecesary Seat
+  //Unnecessary Seat
   const exRow = [ 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A24', 'A25', 'A26', 'A27', 'A28', 'A29', 'A30', 
                   'B1', 'B2', 'B29', 'B30', 
                   'M16', 'M17', 'M18', 'M19', 'M20', 'M21',
@@ -31,7 +32,7 @@ function SeatDum() {
       })
   }, [])
 
-  // Remove Unnecesary Seat
+  // Remove Unnecessary Seat
   for(let i=0; i < exRow.length; i++) {
     for(let j=0; j < seats.length; j++) {
       if (seats[j].name === exRow[i]) {
@@ -53,39 +54,74 @@ function SeatDum() {
 
     // remove double click
     console.log(selectingSeats.length)
-    for (let i = 0; i < selectingSeats.length; i++){
+    for (let i = 0; i < selectingSeats.length; i++) {
       console.log(selectingSeats[i])
-      if (seatpicked === selectingSeats[i]){
+      if (seatpicked === selectingSeats[i]) {
         selectingSeats.splice(i,1);
       }
     }
     console.log(selectingSeats)
   }
 
-  const SelectSeats = () => {
-    let Selected = selectingSeats
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
-    //UNIQUE CHECKER
-    //callback function
-    function isUnique(value, index, array) {
-      return array.indexOf(value) === array.lastIndexOf(value);
+  const SelectSeats = () => {
+    let Selected = selectingSeats;
+    console.log(Selected);
+
+    //only unique seats
+
+    let uniqueSeats = []
+    function OnlyUnique(array) {
+      uniqueSeats = [...new Set(array)];
+      console.log(uniqueSeats);
+      return uniqueSeats;
     }
 
-    //checking if seats are unique
-    const seatsAreUnique = Selected.every(isUnique);
-    console.log(seatsAreUnique);
+    let n = Selected.length;
+    let seatsOdd = []
+    function RemoveEven(arr, n) {
+        let mp = new Map();
+        for (let i = 0; i < n; i++) {
+            if (mp.has(arr[i])) {
+                mp.set(arr[i], mp.get(arr[i]) + 1);
+            } else {
+                mp.set(arr[i], 1);
+            }
+        }
+        for (let i = 0; i < n; i++) {
+            if ((mp.has(arr[i]) && mp.get(arr[i]) % 2 === 0))
+                continue;
+                let odd = arr[i];
+                seatsOdd.push(odd);
+        }
+    }
 
-    //filter unique seats
-    const uniqueSeats = Selected.filter(isUnique);
-    console.log(uniqueSeats);
+    const countSeats = Selected.reduce((m,n)=>({...m, [n]:-~m[n]}),{})
+    let trav = Object.values(countSeats)
+    const even = [];
+    trav.forEach(amount => {
+      if (amount % 2 === 0) {
+          even.push(amount);
+      }
+    });
+    //console.log(even);
 
-    Selected = uniqueSeats
-
-    if(Selected.length !== 0)
+    if (even.length === 0) {
+      OnlyUnique(Selected)
+    }
+    else {
+      RemoveEven(Selected, n)
+      OnlyUnique(seatsOdd)
+    }
+    if(uniqueSeats.length !== 0)
     {
+      console.log("Final Selected: " + uniqueSeats);
       axios
         .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
-          "name": Selected
+          "name": uniqueSeats
         })
         .then(res => {
           //this.props.history.push('/Invoice')
@@ -260,7 +296,7 @@ function SeatDum() {
           <div className="w3ls-reg" style={{paddingTop: '0px'}}>
             <ul className="seat_w3ls">
               <li className="smallBox greenBox">Selected Seat</li>
-              <li className="smallBox redBox">Reserved Seat</li>
+              <li className="smallBox yellowBox">Reserved Seat</li>
               <li className="smallBox emptyBox">Empty Seat</li>
             </ul>
             <div className="screen">
@@ -268,7 +304,10 @@ function SeatDum() {
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <button onClick={() => {SelectSeats()}}> Confirm Selection </button>
+              <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
+              <Link to='/Form'><button> Konfirmasi Pemesanan </button></Link>
+              
+              
             </div>
           </div>
         </div>
@@ -276,12 +315,5 @@ function SeatDum() {
     </div>
   );
 }
-
-//unique seats checker
-function isUnique(value, index, array) {
-  return array.indexOf(value) === array.lastIndexOf(value);
-}
-
-
 
 export default SeatDum
