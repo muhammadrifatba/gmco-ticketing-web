@@ -4,16 +4,14 @@ import './SeatDum.css'
 
 function SeatDum() {
   const[seats, setSeats] = useState([])
-  // const[choice, setChoice] = useState()
-  // const[selectingSeats,setSelectingSeats] = useState([])
-  // const[selectedSeats,setSelectedSeats]=useState([])
+  const[selectingSeats,setSelectingSeats] = useState([])
 
   // Seat Mapping
-  const seatsColumnsr1  = [ '', '',  '',  '',  '',   '',  '', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
-  const seatsColumnsr2  = [ '', '',  '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28',   '',   ''];
-  const seatsColumns    = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
-  const seatsColumns_2  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15',   '',   '',   '',   '',   '',   '', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
-  const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',  '', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
+  const seatsColumnsr2  = [ '', '',  '3', '4', '5', '6', '7', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28',   '',   ''];
+  const seatsColumns    = ['1', '2', '3', '4', '5', '6', '7', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumns_2  = ['1', '2', '3', '4', '5', '6', '7', '8', '9',   '', '10', '11', '12', '13', '14', '15',   '',   '',   '',   '',   '',   '', '', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
   //Unnecesary Seat
@@ -43,29 +41,45 @@ function SeatDum() {
   }
   
   // Make Purchased Seats to Red and Unclickable
-  for(let i=0;i<seats.length;i++){
-    if(seats[i].is_reserved === 'available/green'){
+  for(let i=0;i<seats.length-1;i++){
+    if(seats[i].is_reserved !== 'available/green'){
       document.getElementById(seats[i].name).setAttribute("disabled", true)
     }
   }
   
-  // const choiceSeat = (seat) => {
-  //   const newBookedSeats = setSelectingSeats([...selectingSeats,(seat)])
-  //   setSelectingSeats(newBookedSeats)
-  // }
+  const choiceSeat = (seatpicked) => {
+    const newBookedSeats = [...selectingSeats, seatpicked]
+    setSelectingSeats(newBookedSeats)
 
-  // const SelectSeats = () => {
-  //   const Selected = setSelectingSeats(selectingSeats)
-  //   if(Selected.length !== 0)
-  //   {
-  //     axios.post('http://localhost:8080/bookSeat', {"seats": Selected}).then(res => {
-  //       this.props.history.push('/invoice')
-  //     })
-  //   }
-  //   else {
-  //     alert('Please Select Seats')
-  //   }
-  // };
+    // remove double click
+    console.log(selectingSeats.length)
+    for (let i = 0; i < selectingSeats.length; i++){
+      console.log(selectingSeats[i])
+      if (seatpicked === selectingSeats[i]){
+        selectingSeats.splice(i,1);
+      }
+    }
+    console.log(selectingSeats)
+  }
+
+  const SelectSeats = () => {
+    const Selected = selectingSeats
+    console.log(Selected)
+    if(Selected.length !== 0)
+    {
+      axios
+        .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
+          "name": Selected
+        })
+        .then(res => {
+          //this.props.history.push('/Invoice')
+          console.log(res)
+        })
+    }
+    else {
+      alert('Please Select Seats')
+    }
+  };
   
   const seatsGenerator = () => {
     return (
@@ -96,7 +110,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                      <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                      <input 
+                        onClick={() => choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -117,7 +137,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                   )
               })}
@@ -139,7 +165,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -160,7 +192,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     : 
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -179,7 +217,13 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
+                        <input 
+                        onClick={() => choiceSeat(`${row}${column}`)}
+                        type="checkbox" 
+                        className="seats" 
+                        id={`${row}${column}`} 
+                        value={`${row}${column}`} 
+                      />
                     </td>
                 )
               })}
@@ -208,7 +252,7 @@ function SeatDum() {
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <button onClick={() => { this.SelectSeats()}}>Confirm Selection</button>
+              <button onClick={() => {SelectSeats()}}> Confirm Selection </button>
             </div>
           </div>
         </div>

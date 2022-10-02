@@ -1,20 +1,15 @@
-
 .BlogCard_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .BlogCard_wrapper {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 15px auto;
 }
-
-
 
 .BlogCard {
   width: 95%;
@@ -158,4 +153,3 @@
     width: 100%;
   }
 }
-

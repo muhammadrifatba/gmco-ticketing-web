@@ -83,7 +83,7 @@ const App = () => {
             onChange={onChange}
           />
         ))}
-        <button>Submit</button>
+        <button className="form-button">Submit</button>
       </form>
     </div>
   );

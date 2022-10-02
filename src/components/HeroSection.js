@@ -4,6 +4,7 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import image from '../images/herov1.png';
 import sp from '../images/salpriadi.jpg';
+
 function HeroSection() {
   return (
     <div className='hero-container'>
