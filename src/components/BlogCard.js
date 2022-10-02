@@ -32,7 +32,6 @@ function BlogCard({
         </div>
       </div>
     </div>
-    
   </div>
     
   );
