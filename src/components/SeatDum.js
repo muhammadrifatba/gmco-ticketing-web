@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './SeatDum.css'
+import {Link} from 'react-router-dom';
+
 
 function SeatDum() {
   const[seats, setSeats] = useState([])
@@ -26,9 +28,24 @@ function SeatDum() {
       .get('https://dev.bekisar.net/api/v1/ticketing/booking')
       .then(res => {
         setSeats(res.data)
+        console.log(res)
       })
       .catch(err => {
       })
+  }, [])
+
+  useEffect(() => {    
+    const intervalId = setInterval(() => {
+      axios
+        .get('https://dev.bekisar.net/api/v1/ticketing/booking')
+        .then(res => {
+          setSeats(res.data)
+          console.log('yeee')
+        })
+        .catch(err => {
+        })
+      }, 60000 * 1)
+    return () => clearInterval(intervalId)
   }, [])
 
   // Remove Unnecesary Seat
@@ -52,13 +69,7 @@ function SeatDum() {
     setSelectingSeats(newBookedSeats)
 
     // remove double click
-    console.log(selectingSeats.length)
-    for (let i = 0; i < selectingSeats.length; i++){
-      console.log(selectingSeats[i])
-      if (seatpicked === selectingSeats[i]){
-        selectingSeats.splice(i,1);
-      }
-    }
+    
     console.log(selectingSeats)
   }
 
@@ -88,7 +99,7 @@ function SeatDum() {
           "name": Selected
         })
         .then(res => {
-          //this.props.history.push('/Invoice')
+          this.props.history.push('/Invoice')
           console.log(res)
         })
     }
@@ -268,7 +279,10 @@ function SeatDum() {
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <button onClick={() => {SelectSeats()}}> Confirm Selection </button>
+              <Link to ='/Invoice'>
+                <button onClick={() => {SelectSeats()}}> Confirm Selection </button>
+              </Link>
+              
             </div>
           </div>
         </div>
