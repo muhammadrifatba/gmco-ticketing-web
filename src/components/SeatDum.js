@@ -6,6 +6,11 @@ import {Link} from 'react-router-dom';
 function SeatDum() {
   const[seats, setSeats] = useState([])
   let[selectingSeats,setSelectingSeats] = useState([])
+  const axios = require('axios').default;
+  const axiosCookieJarSupport = require('axios-cookiejar-support').default;
+  const tough = require('tough-cookie');
+  axiosCookieJarSupport(axios);
+  const cookieJar = new tough.CookieJar();
 
   // Seat Mapping
   const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
@@ -21,6 +26,15 @@ function SeatDum() {
                   'M16', 'M17', 'M18', 'M19', 'M20', 'M21',
                   'O17', 'O18', 'O19', 'O20', 'O21', 'O22' ]
 
+    const sendPostSeat = async (uniqueSeats) => {
+        try {
+            const res = await axios.post('https://dev.bekisar.net/api/v1/ticketing/booking', {'name':uniqueSeats}, {withCredentials:true});
+            console.log(res.data);
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+    };
   //Get Seat Data
   useEffect(() => {    
     axios
@@ -119,14 +133,15 @@ function SeatDum() {
     if(uniqueSeats.length !== 0)
     {
       console.log("Final Selected: " + uniqueSeats);
-      axios
-        .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
-          "name": uniqueSeats
-        })
-        .then(res => {
-          //this.props.history.push('/Invoice')
-          console.log(res)
-        })
+      sendPostSeat(uniqueSeats)
+      // axios
+      //   .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
+      //     "name": uniqueSeats
+      //   })
+      //   .then(res => {
+      //     //this.props.history.push('/Invoice')
+      //     console.log(res)
+      //   })
     }
     else {
       alert('Please Select Seats')
@@ -305,7 +320,7 @@ function SeatDum() {
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
               <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
-              <Link to='/Form'><button> Konfirmasi Pemesanan </button></Link>
+              <Link to='/FI'><button> Konfirmasi Pemesanan </button></Link>
               
               
             </div>
