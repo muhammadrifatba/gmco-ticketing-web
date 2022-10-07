@@ -5,6 +5,8 @@ const bekisar = "https://dev.bekisar.net";
 
 function Invoice() {
   const[seatsInvoice, setSeatsInvoice] = useState([])
+  const[seatName, setSeatName] = useState([])
+  const[seatPrice, setSeatPrice] = useState([])
   const[pricesInvoice, setpricesInvoice] = useState([])
   
 
@@ -14,20 +16,22 @@ function Invoice() {
       .then(res => {
         setSeatsInvoice(res.data)
         console.log(res.data)
+        setSeatName(res.data.name)
+        setSeatPrice(res.data.price)
       })
       .catch(err => {
       })
   }, [])
 
-  const seatName = seatsInvoice.name
-  console.log(seatName)
+
   console.log(seatsInvoice)
+  console.log(Object.values(seatsInvoice))
 
 
     return (
       <div>
         <div>
-          <h1>Movie Seat Selection</h1>
+          <h1>Pilihan Kursi</h1>
           <div className='container'>
 
             <div className='w3ls-reg' style={{ display: 'unset', flexWrap: 'unset', paddingTop: '0px' }}>
@@ -46,33 +50,36 @@ function Invoice() {
                       <td>
                         {seatsInvoice.price}
                       </td> */}
-                      <td>
+                      {/* <td>
                         {Object.keys(seatsInvoice).map((key, index) => {
                           return (
                             <div key={index}>
                               <h6>
-                                {key}: {seatsInvoice[key]}
+                                {key}
                               </h6>
                             </div>
                           );
                         })}
-                      </td>
-                      <td>
+                      </td> */}
+                      {/* <td>
                         {Object.values(seatsInvoice).map((value, index) => {
                           return (
                             <div key={index}>
-                              <h6>{value}</h6>
+                              <li>{value}</li>
                             </div>
                           )
                         })}
+                        </td> */}
+                        <td>
+                          {seatName.map(name => (
+                            <li>{name}</li>
+                          ))}
                         </td>
-                      {/* <td>
-                      {
-                              seatName.map((data) => (
-                              <li>{data}</li>
-                             ))
-                           }
-                      </td> */}
+                        <td>
+                          {seatPrice.map(price => (
+                            <li>{price}</li>
+                          ))}
+                        </td>
                          {/* <td>
                            <h6>{
                                 pricesInvoice.map(data => (
@@ -95,7 +102,9 @@ function Invoice() {
         </div>
       </div>
     )
+  
   }
+
 
 
 export default Invoice
