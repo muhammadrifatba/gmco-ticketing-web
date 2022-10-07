@@ -4,7 +4,7 @@ import { FaBlackTie } from "react-icons/fa";
 import "./Form.css";
 import FormInput from "./FormInput";
 
-const URI = "http://10.10.2.96";
+const URI = "https//dev.bekisar.net";
 
 const App = () => {
   const [values, setValues] = useState({

@@ -1,5 +1,7 @@
 import React, { Component, useState,useEffect } from 'react'
 import axios from 'axios'
+const URI = "http://192.168.88.142";
+const bekisar = "https://dev.bekisar.net";
 
 function Invoice() {
   const[seatsInvoice, setSeatsInvoice] = useState([])
@@ -8,18 +10,20 @@ function Invoice() {
 
   useEffect(() => {    
     axios
-      .get('https://dev.bekisar.net/api/v1/ticketing/order',{withCredentials:true})
+      .get(bekisar.concat('/api/v1/ticketing/order'),{withCredentials:true})
       .then(res => {
         setSeatsInvoice(res.data)
-        console.log(res)
-        
-        
+        console.log(res.data)
       })
       .catch(err => {
       })
   }, [])
 
-  
+  const seatName = seatsInvoice.name
+  console.log(seatName)
+  console.log(seatsInvoice)
+
+
     return (
       <div>
         <div>
@@ -35,24 +39,49 @@ function Invoice() {
                       <th>Total Seats</th>
                       <th>Total Price</th>
                     </tr>
-                    {/* <tr>
-                           <td>
-                           <h6>{
-                                seatsInvoice.map(data => (
-                               <span key={data}>{data}, </span>
+                    <tr>
+                      {/* <td>
+                        {seatsInvoice.name}
+                      </td>
+                      <td>
+                        {seatsInvoice.price}
+                      </td> */}
+                      <td>
+                        {Object.keys(seatsInvoice).map((key, index) => {
+                          return (
+                            <div key={index}>
+                              <h6>
+                                {key}: {seatsInvoice[key]}
+                              </h6>
+                            </div>
+                          );
+                        })}
+                      </td>
+                      <td>
+                        {Object.values(seatsInvoice).map((value, index) => {
+                          return (
+                            <div key={index}>
+                              <h6>{value}</h6>
+                            </div>
+                          )
+                        })}
+                        </td>
+                      {/* <td>
+                      {
+                              seatName.map((data) => (
+                              <li>{data}</li>
                              ))
                            }
-                           </h6>
-                         </td>
-                         <td>
+                      </td> */}
+                         {/* <td>
                            <h6>{
                                 pricesInvoice.map(data => (
                                <span key={data}>{data}, </span>
                              ))
                            }
                            </h6>
-                         </td>
-                    </tr> */}
+                         </td> */}
+                    </tr>
                   </tbody>
                 </table>
               </div>

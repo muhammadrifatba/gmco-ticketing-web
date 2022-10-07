@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './SeatDum.css'
 import {Link} from 'react-router-dom';
+const URI = "http://192.168.88.142";
+const bekisar = "https://dev.bekisar.net";
 
 function SeatDum() {
   const[seats, setSeats] = useState([])
   let[selectingSeats,setSelectingSeats] = useState([])
   const axios = require('axios').default;
-  const axiosCookieJarSupport = require('axios-cookiejar-support').default;
-  const tough = require('tough-cookie');
-  axiosCookieJarSupport(axios);
-  const cookieJar = new tough.CookieJar();
+  // const axiosCookieJarSupport = require('axios-cookiejar-support').default;
+  // const tough = require('tough-cookie');
+  // axiosCookieJarSupport(axios);
+  // const cookieJar = new tough.CookieJar();
 
   // Seat Mapping
   const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
@@ -28,7 +30,7 @@ function SeatDum() {
 
     const sendPostSeat = async (uniqueSeats) => {
         try {
-            const res = await axios.post('https://dev.bekisar.net/api/v1/ticketing/booking', {'name':uniqueSeats}, {withCredentials:true});
+            const res = await axios.post(bekisar.concat('/api/v1/ticketing/booking'), {'name':uniqueSeats}, {withCredentials:true});
             console.log(res.data);
         } catch (err) {
             // Handle Error Here
@@ -38,9 +40,10 @@ function SeatDum() {
   //Get Seat Data
   useEffect(() => {    
     axios
-      .get('https://dev.bekisar.net/api/v1/ticketing/booking')
+      .get(bekisar.concat('/api/v1/ticketing/booking'))
       .then(res => {
         setSeats(res.data)
+        console.log(res.data)
       })
       .catch(err => {
       })
@@ -135,7 +138,7 @@ function SeatDum() {
       console.log("Final Selected: " + uniqueSeats);
       sendPostSeat(uniqueSeats)
       // axios
-      //   .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
+      //   .post('https://172.20.10.6/api/v1/ticketing/booking', {
       //     "name": uniqueSeats
       //   })
       //   .then(res => {
