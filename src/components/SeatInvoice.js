@@ -45,12 +45,6 @@ function Invoice() {
                     </tr>
                     <tr>
                       {/* <td>
-                        {seatsInvoice.name}
-                      </td>
-                      <td>
-                        {seatsInvoice.price}
-                      </td> */}
-                      {/* <td>
                         {Object.keys(seatsInvoice).map((key, index) => {
                           return (
                             <div key={index}>
