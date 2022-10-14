@@ -46,24 +46,33 @@ function SeatDum() {
       document.getElementById(seats[i].name).setAttribute("disabled", true)
     }
   }
+
+  const removeDuplicate = (selectSeats, seatpick) => {
+    // remove double click
+    console.log(selectSeats.length)
+    for (let i = 0; i < selectSeats.length; i++){
+      console.log(selectSeats[i])
+      if (seatpick === selectSeats[i]){
+        selectSeats.splice(i,1);
+      }
+    }
+    console.log(selectSeats)
+    setSelectingSeats(selectSeats)
+  }
   
   const choiceSeat = (seatpicked) => {
     const newBookedSeats = [...selectingSeats, seatpicked]
     setSelectingSeats(newBookedSeats)
 
-    // remove double click
-    console.log(selectingSeats.length)
-    for (let i = 0; i < selectingSeats.length; i++){
-      console.log(selectingSeats[i])
-      if (seatpicked === selectingSeats[i]){
-        selectingSeats.splice(i,1);
-      }
-    }
-    console.log(selectingSeats)
+    removeDuplicate(selectingSeats, seatpicked)
   }
 
   const SelectSeats = () => {
     const Selected = selectingSeats
+
+    console.log(Selected[-1])
+    removeDuplicate(Selected, Selected[-1])
+
     console.log(Selected)
     if(Selected.length !== 0)
     {
