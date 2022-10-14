@@ -1,5 +1,5 @@
 import React from 'react'
-import './BlogCard.css';
+import '../style/BlogCard.css';
 import { Button } from './Button';
 
 function BlogCard({

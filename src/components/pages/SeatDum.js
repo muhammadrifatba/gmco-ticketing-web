@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './SeatDum.css'
+import '../style/SeatDum.css'
+import {Link} from 'react-router-dom';
 
 function SeatDum() {
   const[seats, setSeats] = useState([])
-  const[selectingSeats,setSelectingSeats] = useState([])
+  let[selectingSeats,setSelectingSeats] = useState([])
+  const uniqueSeats = []
+  // const axiosCookieJarSupport = require('axios-cookiejar-support').default;
+  // const tough = require('tough-cookie');
+  // axiosCookieJarSupport(axios);
+  // const cookieJar = new tough.CookieJar();
 
   // Seat Mapping
   const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
@@ -14,31 +20,27 @@ function SeatDum() {
   const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
-  //Unnecesary Seat
-  const exRow = [ 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A24', 'A25', 'A26', 'A27', 'A28', 'A29', 'A30', 
-                  'B1', 'B2', 'B29', 'B30', 
-                  'M16', 'M17', 'M18', 'M19', 'M20', 'M21',
-                  'O17', 'O18', 'O19', 'O20', 'O21', 'O22' ]
+  const sendPostSeat = async (uniqueSeats) => {
+      try {
+          const res = await axios.post((process.env.REACT_APP_BEKISAR).concat('/api/v1/ticketing/booking'), {'name':uniqueSeats}, {withCredentials:true});
+          console.log(res.data);
+      } catch (err) {
+          // Handle Error Here
+          console.error(err);
+      }
+  };
 
   //Get Seat Data
   useEffect(() => {    
     axios
-      .get('https://dev.bekisar.net/api/v1/ticketing/booking')
+      .get(bekisar.concat('/api/v1/ticketing/booking'))
       .then(res => {
         setSeats(res.data)
+        console.log(res.data)
       })
       .catch(err => {
       })
   }, [])
-
-  // Remove Unnecesary Seat
-  for(let i=0; i < exRow.length; i++) {
-    for(let j=0; j < seats.length; j++) {
-      if (seats[j].name === exRow[i]) {
-        seats.splice(j,1);
-      }
-    }
-  }
   
   // Make Purchased Seats to Red and Unclickable
   for(let i=0;i<seats.length-1;i++){
@@ -63,8 +65,11 @@ function SeatDum() {
   const choiceSeat = (seatpicked) => {
     const newBookedSeats = [...selectingSeats, seatpicked]
     setSelectingSeats(newBookedSeats)
-
     removeDuplicate(selectingSeats, seatpicked)
+  }
+
+  function refreshPage() {
+    window.location.reload(false);
   }
 
   const SelectSeats = () => {
@@ -76,14 +81,16 @@ function SeatDum() {
     console.log(Selected)
     if(Selected.length !== 0)
     {
-      axios
-        .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
-          "name": Selected
-        })
-        .then(res => {
-          //this.props.history.push('/Invoice')
-          console.log(res)
-        })
+      console.log("Final Selected: " + uniqueSeats);
+      sendPostSeat(uniqueSeats)
+      // axios
+      //   .post('https://172.20.10.6/api/v1/ticketing/booking', {
+      //     "name": uniqueSeats
+      //   })
+      //   .then(res => {
+      //     //this.props.history.push('/Invoice')
+      //     console.log(res)
+      //   })
     }
     else {
       alert('Please Select Seats')
@@ -253,7 +260,7 @@ function SeatDum() {
           <div className="w3ls-reg" style={{paddingTop: '0px'}}>
             <ul className="seat_w3ls">
               <li className="smallBox greenBox">Selected Seat</li>
-              <li className="smallBox redBox">Reserved Seat</li>
+              <li className="smallBox yellowBox">Reserved Seat</li>
               <li className="smallBox emptyBox">Empty Seat</li>
             </ul>
             <div className="screen">
@@ -261,7 +268,10 @@ function SeatDum() {
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <button onClick={() => {SelectSeats()}}> Confirm Selection </button>
+              <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
+              <Link to='/FI'><button> Konfirmasi Pemesanan </button></Link>
+              
+              
             </div>
           </div>
         </div>

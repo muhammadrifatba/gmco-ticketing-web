@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { FaBlackTie } from "react-icons/fa";
-import "./Form.css";
+import "../style/Form.css";
 import FormInput from "./FormInput";
 
-const URI = "http://10.10.2.96";
+const URI = "https//dev.bekisar.net";
 
 const App = () => {
   const [values, setValues] = useState({
@@ -29,7 +29,7 @@ const App = () => {
       name: "lastName",
       type: "text",
       placeholder: "Doe",
-      label: "Nama Depan",
+      label: "Nama Belakang",
       pattern: "^[A-Za-z]{1,20}$",
       required: true
     },
@@ -74,7 +74,7 @@ const App = () => {
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
+        <h1>Order Confirmation</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}

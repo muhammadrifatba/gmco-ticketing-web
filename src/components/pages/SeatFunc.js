@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SeatPicker from "react-seat-picker";
 import { ReactDOM } from "react";
 import Seatmap from "react-seatmap";
-import "./SeatFunc.css";
+import "../style/SeatFunc.css";
 
 function SeatFunc () {
     const rows = [
@@ -78,10 +78,7 @@ function SeatFunc () {
           />
         </div>
       </div>
-      );
-      
-    
+      );    
   }
-
 
 export default SeatFunc

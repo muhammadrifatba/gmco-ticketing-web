@@ -38,5 +38,5 @@ input[type=checkbox]:checked:before {
 /*--//responsive--*/
 
 input:disabled::before {
-  background-color: red;
+  background-color: yellow;
 }

@@ -1,14 +1,11 @@
 import React from 'react';
-import SeatFunc from '../../SeatFunc';
+import SeatFunc from '../SeatFunc';
 
 
 function TicketReservation() {
   return (
     <>
       <SeatFunc/>
-      
-      
-      
     </>
   );
 }
