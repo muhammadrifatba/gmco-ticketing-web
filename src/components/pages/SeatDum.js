@@ -33,7 +33,7 @@ function SeatDum() {
   //Get Seat Data
   useEffect(() => {    
     axios
-      .get(bekisar.concat('/api/v1/ticketing/booking'))
+      .get((process.env.REACT_APP_BEKISAR).concat('/api/v1/ticketing/booking'))
       .then(res => {
         setSeats(res.data)
         console.log(res.data)
