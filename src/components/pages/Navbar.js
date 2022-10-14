@@ -2,10 +2,10 @@ import React,{useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import {FaBars, FaTimes} from 'react-icons/fa';
-import logo from '../images/Logo-FIX.png';
+import logo from '../../images/Logo-FIX.png';
 import { click } from '@testing-library/user-event/dist/click';
 import {Button} from './Button'
-import './Navbar.css'
+import '../style/Navbar.css'
 
 function Navbar() {
   const [click, setClick]= useState(false)

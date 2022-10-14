@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from '../../Form'
-import Invoice from '../../SeatInvoice'
+import Form from '../Form'
+import Invoice from '../SeatInvoice'
 
 
 function FormInvoice() {
@@ -8,10 +8,6 @@ function FormInvoice() {
     <>
       <Form />
       <Invoice/>
-      
-      
-      
-      
     </>
   );
 }

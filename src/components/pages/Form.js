@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { FaBlackTie } from "react-icons/fa";
-import "./Form.css";
+import "../style/Form.css";
 import FormInput from "./FormInput";
 
 const URI = "https//dev.bekisar.net";

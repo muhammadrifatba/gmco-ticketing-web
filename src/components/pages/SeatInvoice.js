@@ -1,5 +1,6 @@
 import React, { Component, useState,useEffect } from 'react'
 import axios from 'axios'
+import '../style/SeatInvoice.css'
 const URI = "http://192.168.88.142";
 const bekisar = "https://dev.bekisar.net";
 

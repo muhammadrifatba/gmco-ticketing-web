@@ -36,6 +36,7 @@ function RemoveEven(arr, n) {
 //     const uniqueSeats = array.filter(isUnique);
 //     console.log(uniqueSeats);
 // }
+
 //only unique seats
 function OnlyUnique(array) {
     const uniqueSeats = [...new Set(array)];
@@ -46,14 +47,12 @@ const countSeats = seats.reduce((m,n)=>({...m, [n]:-~m[n]}),{})
 let trav = Object.values(countSeats)
 //console.log(trav)
 
-
 const even = [];
 trav.forEach(amount => {
     if (amount % 2 === 0) {
         even.push(amount);
     }
 });
-
 
 if (even.length === 0) {
     OnlyUnique(seats)
