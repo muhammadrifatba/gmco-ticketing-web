@@ -3,6 +3,7 @@ import axios from 'axios'
 import '../style/Seat.css'
 import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
+import PageHeader from './PageHeader' 
 
 function SeatDum() {
   const navigate = useNavigate();
@@ -141,10 +142,6 @@ function SeatDum() {
     return (
       <table id="seatsBlock">
         <tbody>
-          <tr>
-            <td/>
-            {seatsColumns.map((column, index) => <td key={index}>{column}</td>)}
-          </tr>
           {
             seatsRows.map((row, index) =>
               row === '' 
@@ -156,9 +153,6 @@ function SeatDum() {
               row === 'A' 
               ?
               <tr key={index}>
-              <td>
-                {row}
-              </td>
               {seatsColumnsr1.map((column, index) => {
                 return (
                   column === ''
@@ -173,6 +167,11 @@ function SeatDum() {
                         id={`${row}${column}`} 
                         value={`${row}${column}`} 
                       />
+                      <label className = 'Seat-label' for={`${row}${column}`}>
+                        <h4>
+                          {`${row}${column}`}
+                        </h4>
+                      </label>
                     </td>
                 )
               })}
@@ -183,9 +182,6 @@ function SeatDum() {
               row ==='B'
               ?
               <tr key={index}>
-              <td>
-                  {row}
-              </td>
               {seatsColumnsr2.map((column, index) => {
                   return (
                     column === '' 
@@ -193,13 +189,18 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input 
+                      <input 
                         onClick={() => choiceSeat(`${row}${column}`)}
                         type="checkbox" 
                         className="seats" 
                         id={`${row}${column}`} 
                         value={`${row}${column}`} 
                       />
+                      <label className = 'Seat-label' for={`${row}${column}`}>
+                        <h4>
+                          {`${row}${column}`}
+                        </h4>
+                      </label>
                     </td>
                   )
               })}
@@ -210,10 +211,6 @@ function SeatDum() {
               row === 'O'
               ?
               <tr key={index}>
-              <td>
-                  {row}
-              </td>
-              
               {seatsColumns_1.map((column, index) => {
                 return (
                   column === ''
@@ -221,13 +218,18 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input 
+                      <input 
                         onClick={() => choiceSeat(`${row}${column}`)}
                         type="checkbox" 
                         className="seats" 
                         id={`${row}${column}`} 
                         value={`${row}${column}`} 
                       />
+                      <label className = 'Seat-label' for={`${row}${column}`}>
+                        <h4>
+                          {`${row}${column}`}
+                        </h4>
+                      </label>
                     </td>
                 )
               })}
@@ -238,9 +240,6 @@ function SeatDum() {
               row === 'M'
               ?
               <tr key={index}>
-              <td>
-                  {row}
-              </td>
               {seatsColumns_2.map((column, index) => {
                 return (
                   column === ''
@@ -248,13 +247,18 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     : 
                     <td key={index}>
-                        <input 
+                      <input 
                         onClick={() => choiceSeat(`${row}${column}`)}
                         type="checkbox" 
                         className="seats" 
                         id={`${row}${column}`} 
                         value={`${row}${column}`} 
                       />
+                      <label className = 'Seat-label' for={`${row}${column}`}>
+                        <h4>
+                          {`${row}${column}`}
+                        </h4>
+                      </label>
                     </td>
                 )
               })}
@@ -263,9 +267,6 @@ function SeatDum() {
               // Lain
               :
               <tr key={index}>
-              <td>
-                  {row}
-              </td>
               {seatsColumns.map((column, index) => {
                 return (
                   column === ''
@@ -273,13 +274,18 @@ function SeatDum() {
                     <td key={index} className="seatGap"></td>
                     :
                     <td key={index}>
-                        <input 
+                      <input 
                         onClick={() => choiceSeat(`${row}${column}`)}
                         type="checkbox" 
                         className="seats" 
                         id={`${row}${column}`} 
                         value={`${row}${column}`} 
                       />
+                      <label className = 'Seat-label' for={`${row}${column}`}>
+                        <h4>
+                          {`${row}${column}`}
+                        </h4>
+                      </label>
                     </td>
                 )
               })}
@@ -293,32 +299,28 @@ function SeatDum() {
     
   // Run HTML
   return (
-    <div>
-      <div>
-        <h1 className="title">Movie Seat Selection</h1>
-        <div className="SeatContainer">
-          <div className="w3ls-reg" style={{paddingTop: '0px'}}>
-            <ul className="seat_w3ls">
-              <li className="smallBox greenBox">Selected Seat</li>
-              <li className="smallBox redBox">Reserved Seat</li>
-              <li className="smallBox emptyBox">Empty Seat</li>
-            </ul>
-            <div className="screen">
-              <h2 className="screen">Screen this way</h2>
-            </div>
-            <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
-              {seatsGenerator()}
-              <Button 
-                className = "Seat btn btn-a" 
-                onClick={() => {SelectSeats()}}
-                buttonStyle = 'primary'
-                buttonSize = 'btn--medium'
-                buttonColor = 'red'
-                > Pesan Kursi
-              </Button>
-            </div>
-          </div>
+    <div className='Seat-body'>
+      <PageHeader title={"Movie Seat Selection"} bgColour="true"/>
+      <div className="Seat-container">
+        <ul className="Seat-type">
+          <li className="smallBox greenBox">Kursi Dipilih</li>
+          <li className="smallBox redBox">Kursi Terpesan</li>
+          <li className="smallBox emptyBox">Kursi Kosong</li>
+        </ul>
+        <div className="Seat-screen">
+          <h2>Panggung</h2>
         </div>
+        <div className="Seat-structure" style={{overflowX:'auto'}}>
+          {seatsGenerator()}
+        </div>
+        <Button 
+          className = "Seat-btn" 
+          onClick={() => {SelectSeats()}}
+          buttonStyle = 'primary'
+          buttonSize = 'btn--wide'
+          buttonColor = 'red'
+          > Pesan Kursi
+        </Button>
       </div>
     </div>
   );

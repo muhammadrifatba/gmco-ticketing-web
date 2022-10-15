@@ -1,5 +1,5 @@
 .PageHeader-container{
-  height: 30vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,18 +8,18 @@
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0);
   object-fit: contain;
   margin-top: -100px; 
+  margin-bottom: -7vh;
 }
 
 .PageHeader-img{
   object-fit: cover;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   position: absolute;
   z-index: -1;
   margin-top: -100px;
   background-attachment: scroll;
   object-position: 75%;
-
 }
 
 .headertitle{
