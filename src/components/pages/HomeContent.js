@@ -14,7 +14,8 @@ function HomeContent({
   buttonLabel,
   img,
   alt,
-  imgStart
+  imgStart,
+  url
 }) {
   return (
     <>
@@ -61,7 +62,7 @@ function HomeContent({
                 >
                   {description2}
                 </p>
-                <a href='#1'>
+                <a href={url}>
                   <Button buttonSize='btn--wide' buttonColor='green'>
                     {buttonLabel}
                   </Button>

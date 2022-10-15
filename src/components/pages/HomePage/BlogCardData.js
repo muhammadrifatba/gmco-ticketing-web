@@ -3,5 +3,6 @@ export const BlogObjOne = {
   BlogText:'Make sure to read carefully the following terms and conditions before buying a ticket.',
   Blogimg :require ('../../../images/TCim.jpg'),
   Blogalt:'',
-  BlogButtonLabel:'Read More'
+  BlogButtonLabel:'Read More',
+  url:'/#/TermCondition'
 };

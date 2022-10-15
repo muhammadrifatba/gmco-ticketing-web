@@ -7,7 +7,8 @@ function BlogCard({
   BlogText,
   Blogimg,
   Blogalt,
-  BlogButtonLabel
+  BlogButtonLabel,
+  url
   }){
 
     return (
@@ -22,7 +23,7 @@ function BlogCard({
               <div className="BlogCard_content">
                 <div className="BlogCard_title">{BlogTitle}</div>
                 <div className="BlogCard_text">{BlogText}</div>
-                  <a href="#">
+                  <a href={url}>
                     <Button buttonSize='btn--wide' buttonColor='green'>
                       {BlogButtonLabel}
                     </Button></a>
