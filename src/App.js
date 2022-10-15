@@ -1,20 +1,16 @@
 
-import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer'
+import './components/style/App.css';
+import Navbar from './components/pages/Navbar';
+import Footer from './components/pages/Footer'
 import Home from './components/pages/HomePage/Home';
 import { 
-  BrowserRouter as Router, 
-  Switch, 
+  HashRouter as Router,  
   Route, 
   Routes
 } from 'react-router-dom'
-import SeatFunc from './components/SeatFunc'
-import SeatInvoice from './components/SeatInvoice';
-import TicketReservation from './components/pages/TicketReservation/TicketReservation';
-import SeatDum from './components/SeatDum';
-import Form from './components/Form';
-
+import Seat from './components/pages/Seat';
+import FormInvoice from './components/pages/FormInvoice';
+import TCPage from './components/pages/CommonHeader/TCPage'
 
 function App() {
   return (
@@ -22,10 +18,9 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/BuyTicket' element={<TicketReservation/>}/>
-          <Route path='/1' element={<SeatDum/>}/>
-          <Route path='/Invoice' element={<SeatInvoice/>}/>
-          <Route path='/Form' element={<Form/>}/>
+          <Route path='/Seat' element={<Seat/>}/>
+          <Route path='/FI' element={<FormInvoice/>}/>
+          <Route path='/TermCondition' element={<TCPage/>}/>
         </Routes>
         <Footer/>
     </Router>

@@ -1,0 +1,23 @@
+.TCWrap{
+  position: relative;
+  background-color: white;
+}
+.TCSection{
+  position: relative;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  line-height: 120%;
+}
+
+.TCSection h3{
+  color: #333333;
+  margin-left: -1.8vw;
+  margin-top: 1.5vh;
+  margin-bottom: 0.25vh;
+}
+
+.TCSection li {
+  color: #4d4d4d;
+}
