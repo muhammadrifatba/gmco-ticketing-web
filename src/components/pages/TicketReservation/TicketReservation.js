@@ -1,11 +1,11 @@
 import React from 'react';
-import SeatFunc from '../SeatFunc';
+import SeatDum from '../SeatDum';
 
 
 function TicketReservation() {
   return (
     <>
-      <SeatFunc/>
+      <SeatDum/>
     </>
   );
 }

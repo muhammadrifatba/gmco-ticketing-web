@@ -12,8 +12,10 @@ import {
 import SeatFunc from './components/pages/SeatFunc'
 import SeatInvoice from './components/pages/SeatInvoice';
 import TicketReservation from './components/pages/TicketReservation/TicketReservation';
-import SeatDum from './components/pages/SeatDum';
+import SeatDum from '../src/components/pages/SeatDum';
 import FormInvoice from './components/pages/FormInvoice/FormInvoice';
+import TCPage from './components/pages/TCPage/TCPage'
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path='/1' element={<SeatDum/>}/>
           <Route path='/Invoice' element={<SeatInvoice/>}/>
           <Route path='/FI' element={<FormInvoice/>}/>
+          <Route path='/TCPage' element={<TCPage/>}/>
         </Routes>
         <Footer/>
     </Router>
