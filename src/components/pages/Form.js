@@ -3,8 +3,7 @@ import { useState } from "react";
 import { FaBlackTie } from "react-icons/fa";
 import "../style/Form.css";
 import FormInput from "./FormInput";
-
-const URI = "https//dev.bekisar.net";
+const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
 
 const App = () => {
   const [values, setValues] = useState({
@@ -53,19 +52,34 @@ const App = () => {
     },
   ];
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(values);
-    axios.post(URI.concat('/api/v1/ticketing/order'),{
-      first_name: values.firstName,
-      last_name: values.lastName,
-      phone: values.phoneNo,
-      email: values.email
-    }).then(res=>{
-      console.log(res.values);
-    })
-
+    try{
+      const res = await axios.post(URL,  
+        {
+          first_name: values.firstName,
+          last_name: values.lastName,
+          phone: values.phoneNo,
+          email: values.email
+        },
+        {withCredentials:true}
+      )
+      console.log(res.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  // const sendPostSeat = async (uniqueSeats) => {
+  //   try {
+  //       const res = await axios.post(URL, {'name':uniqueSeats}, {withCredentials:true});
+  //       console.log(res.data);
+  //   } catch (err) {
+  //       // Handle Error Here
+  //       console.error(err);
+  //   }
+  // };
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -74,7 +88,7 @@ const App = () => {
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
-        <h1>Order Confirmation</h1>
+        <h1 className="title">Order Confirmation</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}

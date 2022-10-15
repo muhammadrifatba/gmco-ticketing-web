@@ -6,11 +6,6 @@ import {Link} from 'react-router-dom';
 function SeatDum() {
   const[seats, setSeats] = useState([])
   let[selectingSeats,setSelectingSeats] = useState([])
-  const uniqueSeats = []
-  // const axiosCookieJarSupport = require('axios-cookiejar-support').default;
-  // const tough = require('tough-cookie');
-  // axiosCookieJarSupport(axios);
-  // const cookieJar = new tough.CookieJar();
 
   // Seat Mapping
   const seatsColumnsr1  = [ '', '',   '',  '',  '',  '',  '', '8', '9',   '', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '', '22', '23',   '',   '',   '',   '',   '',   '',   ''];
@@ -20,26 +15,42 @@ function SeatDum() {
   const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
+  //Get Post URL
+  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/booking')
+
+  //
   const sendPostSeat = async (uniqueSeats) => {
-      try {
-          const res = await axios.post((process.env.REACT_APP_BEKISAR).concat('/api/v1/ticketing/booking'), {'name':uniqueSeats}, {withCredentials:true});
-          console.log(res.data);
-      } catch (err) {
-          // Handle Error Here
-          console.error(err);
-      }
+    try {
+        const res = await axios.post(URL, {'name':uniqueSeats}, {withCredentials:true});
+        console.log(res.data);
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
   };
 
   //Get Seat Data
   useEffect(() => {    
     axios
-      .get((process.env.REACT_APP_BEKISAR).concat('/api/v1/ticketing/booking'))
+      .get(URL)
       .then(res => {
         setSeats(res.data)
-        console.log(res.data)
       })
       .catch(err => {
       })
+  }, [])
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios
+      .get(URL)
+      .then(res => {
+        setSeats(res.data)
+      })
+      .catch(err => {
+      })
+    }, 60000)
+    return () => clearInterval(intervalId);
   }, [])
   
   // Make Purchased Seats to Red and Unclickable
@@ -48,49 +59,74 @@ function SeatDum() {
       document.getElementById(seats[i].name).setAttribute("disabled", true)
     }
   }
-
-  const removeDuplicate = (selectSeats, seatpick) => {
-    // remove double click
-    console.log(selectSeats.length)
-    for (let i = 0; i < selectSeats.length; i++){
-      console.log(selectSeats[i])
-      if (seatpick === selectSeats[i]){
-        selectSeats.splice(i,1);
-      }
-    }
-    console.log(selectSeats)
-    setSelectingSeats(selectSeats)
-  }
   
   const choiceSeat = (seatpicked) => {
     const newBookedSeats = [...selectingSeats, seatpicked]
     setSelectingSeats(newBookedSeats)
-    removeDuplicate(selectingSeats, seatpicked)
-  }
 
-  function refreshPage() {
-    window.location.reload(false);
+    // remove double click
+    console.log(selectingSeats.length)
+    for (let i = 0; i < selectingSeats.length; i++) {
+      console.log(selectingSeats[i])
+      if (seatpicked === selectingSeats[i]) {
+        selectingSeats.splice(i,1);
+      }
+    }
+    console.log(selectingSeats)
   }
 
   const SelectSeats = () => {
-    const Selected = selectingSeats
+    let Selected = selectingSeats;
+    console.log(Selected);
 
-    console.log(Selected[-1])
-    removeDuplicate(Selected, Selected[-1])
+    //only unique seats
+    let uniqueSeats = []
+    function OnlyUnique(array) {
+      uniqueSeats = [...new Set(array)];
+      console.log(uniqueSeats);
+      return uniqueSeats;
+    }
 
-    console.log(Selected)
-    if(Selected.length !== 0)
+    let n = Selected.length;
+    let seatsOdd = []
+    function RemoveEven(arr, n) {
+        let mp = new Map();
+        for (let i = 0; i < n; i++) {
+            if (mp.has(arr[i])) {
+                mp.set(arr[i], mp.get(arr[i]) + 1);
+            } else {
+                mp.set(arr[i], 1);
+            }
+        }
+        for (let i = 0; i < n; i++) {
+            if ((mp.has(arr[i]) && mp.get(arr[i]) % 2 === 0))
+                continue;
+                let odd = arr[i];
+                seatsOdd.push(odd);
+        }
+    }
+
+    const countSeats = Selected.reduce((m,n)=>({...m, [n]:-~m[n]}),{})
+    let trav = Object.values(countSeats)
+    const even = [];
+    trav.forEach(amount => {
+      if (amount % 2 === 0) {
+          even.push(amount);
+      }
+    });
+    //console.log(even);
+
+    if (even.length === 0) {
+      OnlyUnique(Selected)
+    }
+    else {
+      RemoveEven(Selected, n)
+      OnlyUnique(seatsOdd)
+    }
+    if(uniqueSeats.length !== 0)
     {
       console.log("Final Selected: " + uniqueSeats);
       sendPostSeat(uniqueSeats)
-      // axios
-      //   .post('https://172.20.10.6/api/v1/ticketing/booking', {
-      //     "name": uniqueSeats
-      //   })
-      //   .then(res => {
-      //     //this.props.history.push('/Invoice')
-      //     console.log(res)
-      //   })
     }
     else {
       alert('Please Select Seats')
@@ -255,23 +291,20 @@ function SeatDum() {
   return (
     <div>
       <div>
-        <h1>Movie Seat Selection</h1>
+        <h1 className="title">Movie Seat Selection</h1>
         <div className="SeatContainer">
           <div className="w3ls-reg" style={{paddingTop: '0px'}}>
             <ul className="seat_w3ls">
               <li className="smallBox greenBox">Selected Seat</li>
-              <li className="smallBox yellowBox">Reserved Seat</li>
+              <li className="smallBox redBox">Reserved Seat</li>
               <li className="smallBox emptyBox">Empty Seat</li>
             </ul>
             <div className="screen">
-              <h2 className="wthree">Screen this way</h2>
+              <h2 className="screen">Screen this way</h2>
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
-              <Link to='/FI'><button> Konfirmasi Pemesanan </button></Link>
-              
-              
+              <Link to='/FI'><button onClick={() => {SelectSeats()}}> Pesan Kursi </button></Link>
             </div>
           </div>
         </div>

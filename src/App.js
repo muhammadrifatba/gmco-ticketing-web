@@ -9,11 +9,9 @@ import {
   Route, 
   Routes
 } from 'react-router-dom'
-import SeatFunc from './components/pages/SeatFunc'
 import SeatInvoice from './components/pages/SeatInvoice';
-import TicketReservation from './components/pages/TicketReservation/TicketReservation';
 import SeatDum from './components/pages/SeatDum';
-import FormInvoice from './components/pages/FormInvoice/FormInvoice';
+import FormInvoice from './components/pages/FormInvoice';
 
 function App() {
   return (
@@ -21,9 +19,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/BuyTicket' element={<TicketReservation/>}/>
-          <Route path='/1' element={<SeatDum/>}/>
-          <Route path='/Invoice' element={<SeatInvoice/>}/>
+          <Route path='/Seat' element={<SeatDum/>}/>
           <Route path='/FI' element={<FormInvoice/>}/>
         </Routes>
         <Footer/>
