@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBlackTie } from "react-icons/fa";
 import "../style/Form.css";
 import FormInput from "./FormInput";
 
-const URI = "https//dev.bekisar.net";
-
 const App = () => {
+  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
+  
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -14,6 +14,22 @@ const App = () => {
     phoneNo: ""
   });
 
+  useEffect(() => {
+    const snapSrcUrl = 'https://app.sandbox.midtrans.com/snap/snap.js';
+    const myMidtransClientKey = 'SB-Mid-client-pKhjdsW23b2bUqjV';
+    
+    const script = document.createElement('script');
+    script.src = snapSrcUrl;
+    script.setAttribute('data-client-key', myMidtransClientKey);
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  });
+  
   const inputs = [
     {
       id: 1,
@@ -53,18 +69,43 @@ const App = () => {
     },
   ];
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(values);
-    axios.post(URI.concat('/api/v1/ticketing/order'),{
-      first_name: values.firstName,
-      last_name: values.lastName,
-      phone: values.phoneNo,
-      email: values.email
-    }).then(res=>{
-      console.log(res.values);
-    })
+    try{
+      const res = await axios.post(URL,  
+        {
+          first_name: values.firstName,
+          last_name: values.lastName,
+          phone: values.phoneNo,
+          email: values.email
+        },
+        {withCredentials:true}
+      )
+      const token = res.data.token
+      console.log(res.data);
 
+      window.snap.pay(token, {
+        onSuccess: function(result){
+          /* You may add your own implementation here */
+          
+        },
+        onPending: function(result){
+          /* You may add your own implementation here */
+          
+        },
+        onError: function(result){
+          /* You may add your own implementation here */
+          
+        },
+        onClose: function(){
+          /* You may add your own implementation here */
+          
+        }
+      })
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const onChange = (e) => {
@@ -74,7 +115,7 @@ const App = () => {
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
-        <h1>Order Confirmation</h1>
+        <h1 className="title">Order Confirmation</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}

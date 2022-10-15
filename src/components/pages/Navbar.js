@@ -50,7 +50,7 @@ function Navbar() {
     <div className={navbar ? 'navbar-active' : 'navbar'}>
       <div className="navbar-container container">
         <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
-          <img class='navbar-img' src={logo} alt={"logo"}/>
+          <img className='navbar-img' src={logo} alt={"logo"}/>
           GMCO LIVE
         </Link>
         <div className="menu-icon" onClick={handleClick}>
