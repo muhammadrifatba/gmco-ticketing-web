@@ -1,7 +1,7 @@
 
-import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer'
+import './components/style/App.css';
+import Navbar from './components/pages/Navbar';
+import Footer from './components/pages/Footer'
 import Home from './components/pages/HomePage/Home';
 import { 
   BrowserRouter as Router, 
@@ -9,12 +9,9 @@ import {
   Route, 
   Routes
 } from 'react-router-dom'
-import SeatFunc from './components/SeatFunc'
-import SeatInvoice from './components/SeatInvoice';
-import TicketReservation from './components/pages/TicketReservation/TicketReservation';
-import SeatDum from './components/SeatDum';
-import Form from './components/Form';
-
+import SeatInvoice from './components/pages/SeatInvoice';
+import SeatDum from './components/pages/SeatDum';
+import FormInvoice from './components/pages/FormInvoice';
 
 function App() {
   return (
@@ -22,10 +19,8 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/BuyTicket' element={<TicketReservation/>}/>
-          <Route path='/1' element={<SeatDum/>}/>
-          <Route path='/Invoice' element={<SeatInvoice/>}/>
-          <Route path='/Form' element={<Form/>}/>
+          <Route path='/Seat' element={<SeatDum/>}/>
+          <Route path='/FI' element={<FormInvoice/>}/>
         </Routes>
         <Footer/>
     </Router>

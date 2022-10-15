@@ -1,3 +1,38 @@
+.title, .screen{
+  text-align: center;
+}
+
+li.smallBox {
+  text-align: left;
+  display: inline-block;
+  margin-right: 1em;
+  color: black;
+}
+
+.smallBox::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 10px;
+  
+  border: 3px solid #ff9800;
+  border-radius: 5px;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+
+.greenBox::before {
+  content: "";
+  background: Green;
+}
+
+.redBox::before {
+  content: "";
+  background: Red;
+}
+
 td{
   text-align: center;
 }
@@ -18,12 +53,12 @@ input[type=checkbox]:before {
   content: "";
   width: 25px;
   height: 18px;
-  border-radius: 5px;
 
   display: inline-block;
   vertical-align: middle;
   text-align: center;
   border: 3px solid #ff9800;
+  border-radius: 5px;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
@@ -34,8 +69,6 @@ input[type=checkbox]:checked:before {
   background-color: Green;
   font-size: 15px;
 }
-
-/*--//responsive--*/
 
 input:disabled::before {
   background-color: red;

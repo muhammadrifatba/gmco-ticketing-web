@@ -1,5 +1,5 @@
 import React from 'react';
-import './HomeContent2.css';
+import '../style/HomeContent2.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 

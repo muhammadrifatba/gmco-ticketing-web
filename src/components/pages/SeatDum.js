@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './SeatDum.css'
-import {Link} from 'react-router-dom';
-
+import '../style/SeatDum.css'
+import { useNavigate } from 'react-router-dom';
 
 function SeatDum() {
+  const navigate = useNavigate();
   const[seats, setSeats] = useState([])
   let[selectingSeats,setSelectingSeats] = useState([])
 
@@ -16,16 +16,24 @@ function SeatDum() {
   const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
-  //Unnecesary Seat
-  const exRow = [ 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A24', 'A25', 'A26', 'A27', 'A28', 'A29', 'A30', 
-                  'B1', 'B2', 'B29', 'B30', 
-                  'M16', 'M17', 'M18', 'M19', 'M20', 'M21',
-                  'O17', 'O18', 'O19', 'O20', 'O21', 'O22' ]
+  // Get Post URL
+  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/booking')
+
+  // send Post Seat
+  const sendPostSeat = async (uniqueSeats) => {
+    try {
+        const res = await axios.post(URL, {'name':uniqueSeats}, {withCredentials:true});
+        console.log(res.data);
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+  };
 
   //Get Seat Data
   useEffect(() => {    
     axios
-      .get('https://dev.bekisar.net/api/v1/ticketing/booking')
+      .get(URL)
       .then(res => {
         setSeats(res.data)
         console.log(res)
@@ -34,28 +42,18 @@ function SeatDum() {
       })
   }, [])
 
-  useEffect(() => {    
+  useEffect(() => {
     const intervalId = setInterval(() => {
       axios
-        .get('https://dev.bekisar.net/api/v1/ticketing/booking')
-        .then(res => {
-          setSeats(res.data)
-          console.log('yeee')
-        })
-        .catch(err => {
-        })
-      }, 60000 * 1)
-    return () => clearInterval(intervalId)
+      .get(URL)
+      .then(res => {
+        setSeats(res.data)
+      })
+      .catch(err => {
+      })
+    }, 60000)
+    return () => clearInterval(intervalId);
   }, [])
-
-  // Remove Unnecesary Seat
-  for(let i=0; i < exRow.length; i++) {
-    for(let j=0; j < seats.length; j++) {
-      if (seats[j].name === exRow[i]) {
-        seats.splice(j,1);
-      }
-    }
-  }
   
   // Make Purchased Seats to Red and Unclickable
   for(let i=0;i<seats.length-1;i++){
@@ -69,39 +67,69 @@ function SeatDum() {
     setSelectingSeats(newBookedSeats)
 
     // remove double click
-    
+    console.log(selectingSeats.length)
+    for (let i = 0; i < selectingSeats.length; i++) {
+      console.log(selectingSeats[i])
+      if (seatpicked === selectingSeats[i]) {
+        selectingSeats.splice(i,1);
+      }
+    }
     console.log(selectingSeats)
   }
 
   const SelectSeats = () => {
-    let Selected = selectingSeats
+    let Selected = selectingSeats;
+    console.log(Selected);
 
-    //UNIQUE CHECKER
-    //callback function
-    function isUnique(value, index, array) {
-      return array.indexOf(value) === array.lastIndexOf(value);
+    //only unique seats
+    let uniqueSeats = []
+    function OnlyUnique(array) {
+      uniqueSeats = [...new Set(array)];
+      console.log(uniqueSeats);
+      return uniqueSeats;
     }
 
-    //checking if seats are unique
-    const seatsAreUnique = Selected.every(isUnique);
-    console.log(seatsAreUnique);
+    let n = Selected.length;
+    let seatsOdd = []
+    function RemoveEven(arr, n) {
+        let mp = new Map();
+        for (let i = 0; i < n; i++) {
+            if (mp.has(arr[i])) {
+                mp.set(arr[i], mp.get(arr[i]) + 1);
+            } else {
+                mp.set(arr[i], 1);
+            }
+        }
+        for (let i = 0; i < n; i++) {
+            if ((mp.has(arr[i]) && mp.get(arr[i]) % 2 === 0))
+                continue;
+                let odd = arr[i];
+                seatsOdd.push(odd);
+        }
+    }
 
-    //filter unique seats
-    const uniqueSeats = Selected.filter(isUnique);
-    console.log(uniqueSeats);
+    const countSeats = Selected.reduce((m,n)=>({...m, [n]:-~m[n]}),{})
+    let trav = Object.values(countSeats)
+    const even = [];
+    trav.forEach(amount => {
+      if (amount % 2 === 0) {
+          even.push(amount);
+      }
+    });
 
-    Selected = uniqueSeats
+    if (even.length === 0) {
+      OnlyUnique(Selected)
+    }
+    else {
+      RemoveEven(Selected, n)
+      OnlyUnique(seatsOdd)
+    }
 
-    if(Selected.length !== 0)
+    if(uniqueSeats.length !== 0)
     {
-      axios
-        .post('https://dev.bekisar.net/api/v1/ticketing/booking', {
-          "name": Selected
-        })
-        .then(res => {
-          this.props.history.push('/Invoice')
-          console.log(res)
-        })
+      console.log("Final Selected: " + uniqueSeats);
+      sendPostSeat(uniqueSeats)
+      setTimeout(() => navigate("/FI"), 1000)
     }
     else {
       alert('Please Select Seats')
@@ -266,7 +294,7 @@ function SeatDum() {
   return (
     <div>
       <div>
-        <h1>Movie Seat Selection</h1>
+        <h1 className="title">Movie Seat Selection</h1>
         <div className="SeatContainer">
           <div className="w3ls-reg" style={{paddingTop: '0px'}}>
             <ul className="seat_w3ls">
@@ -275,14 +303,11 @@ function SeatDum() {
               <li className="smallBox emptyBox">Empty Seat</li>
             </ul>
             <div className="screen">
-              <h2 className="wthree">Screen this way</h2>
+              <h2 className="screen">Screen this way</h2>
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <Link to ='/Invoice'>
-                <button onClick={() => {SelectSeats()}}> Confirm Selection </button>
-              </Link>
-              
+              <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
             </div>
           </div>
         </div>
@@ -290,12 +315,5 @@ function SeatDum() {
     </div>
   );
 }
-
-//unique seats checker
-function isUnique(value, index, array) {
-  return array.indexOf(value) === array.lastIndexOf(value);
-}
-
-
 
 export default SeatDum
