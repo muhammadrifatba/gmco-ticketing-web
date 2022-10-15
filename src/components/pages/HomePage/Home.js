@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BlogCard from '../BlogCard';
 import HeroSection from '../HeroSection';
 import HomeContent from '../HomeContent';
@@ -9,8 +9,8 @@ import { BlogObjOne, } from './BlogCardData';
 function Home() {
   return (
     <>
-      <HeroSection />
-      <HomeContent {...homeObjOne}/>
+      <HeroSection/>
+      <HomeContent  {...homeObjOne}/>
       <HomeContent2 {...homeObjTwo}/>
       <BlogCard {...BlogObjOne}/>
     </>

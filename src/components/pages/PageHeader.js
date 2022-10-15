@@ -7,8 +7,8 @@ function PageHeader ({title,bgColour})  {
   return(
     <div className="PageHeader-container">
       <img src={image}  className="PageHeader-img" />
-        <h1 className='headertitle'> {title}</h1>
-   </div>
+      <h1 className = 'headertitle'> {title}</h1>
+    </div>
   )
 }
 

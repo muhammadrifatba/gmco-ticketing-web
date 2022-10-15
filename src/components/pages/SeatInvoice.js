@@ -26,39 +26,34 @@ function Invoice() {
   console.log(Object.values(seatsInvoice))
 
     return (
-      <div>
-        <div>
-          <h1 className='title'>Pilihan Kursi</h1>
+      <div className='SeatInvoice-cont'>
+        <div className='SeatInvoice-body'>
+          <h1 className='SeatInvoice-title'>Pilihan Kursi</h1>
           <div className='container'>
-            <div className='w3ls-reg' style={{ display: 'unset', flexWrap: 'unset', paddingTop: '0px' }}>
-              <div className='displayerBoxes txt-center' style={{ overflowX: 'auto' }}>
-                <table className='Displaytable w3ls-table' width='100%'>
-                  <tbody>
-                    <tr>
-                      <th>Total Seats</th>
-                      <th>Total Price</th>
-                    </tr>
-                    <tr>
-                        <td>
-                          {seatName.map(name => (
-                            <li>{name}</li>
-                          ))}
-                        </td>
-                        <td>
-                          {seatPrice.map(price => (
-                            <li>{price}</li>
-                          ))}
-                        </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <table className='SeatInvoice-table'>
+              <tbody>
+                <tr>
+                  <th className='SeatInvoice-item'>Total Seats</th>
+                  <th className='SeatInvoice-item'>Total Price</th>
+                </tr>
+                <tr>
+                  <td>
+                    {seatName.map(name => (
+                      <li className='SeatInvoice-item'>{name}</li>
+                    ))}
+                  </td>
+                  <td>
+                    {seatPrice.map(price => (
+                      <li className='SeatInvoice-item'>{price}</li>
+                    ))}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     )
-  
   }
 
 
