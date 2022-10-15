@@ -115,7 +115,7 @@ const App = () => {
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
-        <h1 className="title">Order Confirmation</h1>
+        <h1 className="Form-title">Data Pemesan</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}

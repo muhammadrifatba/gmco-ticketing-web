@@ -10,12 +10,12 @@
 .Seat-structure{
   padding: 2vh 0 3vh 0;
   display: flex;
-  /* border-style: solid; */
   margin-bottom: 3vh;
 }
 
 .Seat-type {
   text-align: center;
+  margin-top: 2vh;
   padding-bottom: 1vh;
 }
 
@@ -116,5 +116,9 @@ input:disabled::before {
 @media screen and (min-width: 1024px) {
   .Seat-structure{
     justify-content: center;
+  }
+
+  .Seat-screen{
+    width: 50vw;
   }
 }
