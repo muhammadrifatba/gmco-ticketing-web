@@ -10,8 +10,8 @@ function HeroSection() {
     <div className='hero-container'>
      <img class='hero-images' src ={image}></img>
      
-      <p>What are you waiting for?</p>
-      <h2>GMCO Live from the Living Room:<br/>Indonesia Pop Now and Then</h2>
+      <p>WHAT ARE YOU WAITING FOR?</p>
+      <h2>GMCO Live from the Living Room:<br/>Indonesian Pop Now and Then</h2>
       
       <div class="multi-item">
         <button class="multi-button_button">Saturday</button>

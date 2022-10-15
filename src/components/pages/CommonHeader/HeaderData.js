@@ -1,5 +1,5 @@
 export const HeaderOne = {
   bgColour: true,
-  title: 'Terms & Condition'
+  title: 'Terms & Conditions'
 
 };
