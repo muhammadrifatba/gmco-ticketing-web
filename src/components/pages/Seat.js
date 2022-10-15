@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import '../style/SeatDum.css'
+import '../style/Seat.css'
 import { useNavigate } from 'react-router-dom';
+import { Button } from './Button';
 
 function SeatDum() {
   const navigate = useNavigate();
@@ -307,7 +308,14 @@ function SeatDum() {
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
+              <Button 
+                className = "Seat btn btn-a" 
+                onClick={() => {SelectSeats()}}
+                buttonStyle = 'primary'
+                buttonSize = 'btn--medium'
+                buttonColor = 'red'
+                > Pesan Kursi
+              </Button>
             </div>
           </div>
         </div>

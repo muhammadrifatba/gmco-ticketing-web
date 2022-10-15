@@ -4,13 +4,11 @@ import Navbar from './components/pages/Navbar';
 import Footer from './components/pages/Footer'
 import Home from './components/pages/HomePage/Home';
 import { 
-  BrowserRouter as Router, 
-  Switch, 
+  HashRouter as Router,  
   Route, 
   Routes
 } from 'react-router-dom'
-import SeatInvoice from './components/pages/SeatInvoice';
-import SeatDum from './components/pages/SeatDum';
+import Seat from './components/pages/Seat';
 import FormInvoice from './components/pages/FormInvoice';
 import TCPage from './components/pages/CommonHeader/TCPage'
 
@@ -20,7 +18,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/Seat' element={<SeatDum/>}/>
+          <Route path='/Seat' element={<Seat/>}/>
           <Route path='/FI' element={<FormInvoice/>}/>
           <Route path='/TermCondition' element={<TCPage/>}/>
         </Routes>

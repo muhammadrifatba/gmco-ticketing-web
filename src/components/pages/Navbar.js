@@ -42,8 +42,6 @@ function Navbar() {
 
   window.addEventListener('scroll',changeBackground)
   
-  
-  
   return (
     <>
     <IconContext.Provider value={{color:'#fff'}}>
