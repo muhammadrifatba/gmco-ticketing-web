@@ -1,7 +1,35 @@
-.title, .screen{
+.Seat-title, 
+.Seat-container {
   text-align: center;
 }
 
+.Seat-container {
+  padding: 2vh 1vw;
+}
+
+.Seat-structure{
+  padding: 2vh 0 3vh 0;
+  display: flex;
+  /* border-style: solid; */
+  margin-bottom: 3vh;
+}
+
+.Seat-type {
+  text-align: center;
+  padding-bottom: 1vh;
+}
+
+.Seat-screen{
+  display: inline-block;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  width: 70vw;
+  margin-bottom: 1vh;
+  background-color: gray;
+  color: white;
+}
+
+/* Fungsi kotak2 kuris gajelas */
 li.smallBox {
   text-align: left;
   display: inline-block;
@@ -16,21 +44,21 @@ li.smallBox {
   display: inline-block;
   margin-right: 10px;
   
-  border: 3px solid #ff9800;
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  background-color:#354a62;
 }
 
 .greenBox::before {
   content: "";
-  background: Green;
+  background: #e3b386;
 }
 
 .redBox::before {
   content: "";
-  background: Red;
+  background: #b5594b;
 }
 
 td{
@@ -39,37 +67,54 @@ td{
 
 .seatGap, .seatVGap{
   content: "";
-  width: 25px;
-  height: 18px;
+  height: 20px;
+}
+
+.Seat-label {
+  display: flex;
+  margin-top: -15px;
+  margin-left: -5px;
+  justify-content: center;
+  color: white;
 }
 
 input[type=checkbox] {
-  width: 13px;
-  margin-right: 14px;
+  margin-right: 30px;
   cursor: pointer;
 }
 
 input[type=checkbox]:before {
   content: "";
-  width: 25px;
-  height: 18px;
+  width: 35px;
+  height: 30px;
 
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  border: 3px solid #ff9800;
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  background-color: #ffffff;
+  background-color:#354a62;
 }
 
 input[type=checkbox]:checked:before {
-  background-color: Green;
+  background-color: #e3b386;
   font-size: 15px;
 }
 
 input:disabled::before {
-  background-color: red;
+  background-color: #b5594b;
+}
+
+/* Tabley */
+@media screen and (min-width: 600px) {
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .Seat-structure{
+    justify-content: center;
+  }
 }
