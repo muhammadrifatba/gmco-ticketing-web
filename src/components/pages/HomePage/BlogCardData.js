@@ -4,5 +4,4 @@ export const BlogObjOne = {
   Blogimg :require ('../../../images/TCim.jpg'),
   Blogalt:'',
   BlogButtonLabel:'Read More'
-  
 };

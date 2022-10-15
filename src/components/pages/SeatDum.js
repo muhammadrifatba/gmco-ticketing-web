@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../style/SeatDum.css'
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function SeatDum() {
+  const navigate = useNavigate();
   const[seats, setSeats] = useState([])
   let[selectingSeats,setSelectingSeats] = useState([])
 
@@ -15,10 +16,10 @@ function SeatDum() {
   const seatsColumns_1  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',   '',   '',   '',   '',   '',   '', '',   '', '23', '24', '25', '26', '27', '28', '29', '30'];
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
-  //Get Post URL
+  // Get Post URL
   const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/booking')
 
-  //
+  // send Post Seat
   const sendPostSeat = async (uniqueSeats) => {
     try {
         const res = await axios.post(URL, {'name':uniqueSeats}, {withCredentials:true});
@@ -114,7 +115,6 @@ function SeatDum() {
           even.push(amount);
       }
     });
-    //console.log(even);
 
     if (even.length === 0) {
       OnlyUnique(Selected)
@@ -123,10 +123,12 @@ function SeatDum() {
       RemoveEven(Selected, n)
       OnlyUnique(seatsOdd)
     }
+
     if(uniqueSeats.length !== 0)
     {
       console.log("Final Selected: " + uniqueSeats);
       sendPostSeat(uniqueSeats)
+      setTimeout(() => navigate("/FI"), 1000)
     }
     else {
       alert('Please Select Seats')
@@ -304,7 +306,7 @@ function SeatDum() {
             </div>
             <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
               {seatsGenerator()}
-              <Link to='/FI'><button onClick={() => {SelectSeats()}}> Pesan Kursi </button></Link>
+              <button onClick={() => {SelectSeats()}}> Pesan Kursi </button>
             </div>
           </div>
         </div>

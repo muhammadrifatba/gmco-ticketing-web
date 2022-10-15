@@ -1,4 +1,4 @@
-import React, { Component, useState,useEffect } from 'react'
+import React, { Component, useState,useEffect, useReducer } from 'react'
 import axios from 'axios'
 import '../style/SeatInvoice.css'
 
@@ -9,7 +9,7 @@ function Invoice() {
 
   const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
 
-  useEffect(() => {    
+  useEffect(() => { 
     axios
       .get(URL, {withCredentials:true})
       .then(res => {
@@ -28,7 +28,7 @@ function Invoice() {
     return (
       <div>
         <div>
-          <h1>Pilihan Kursi</h1>
+          <h1 className='title'>Pilihan Kursi</h1>
           <div className='container'>
             <div className='w3ls-reg' style={{ display: 'unset', flexWrap: 'unset', paddingTop: '0px' }}>
               <div className='displayerBoxes txt-center' style={{ overflowX: 'auto' }}>

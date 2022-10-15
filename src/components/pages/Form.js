@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBlackTie } from "react-icons/fa";
 import "../style/Form.css";
 import FormInput from "./FormInput";
-const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
 
 const App = () => {
+  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
+  
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -13,6 +14,22 @@ const App = () => {
     phoneNo: ""
   });
 
+  useEffect(() => {
+    const snapSrcUrl = 'https://app.sandbox.midtrans.com/snap/snap.js';
+    const myMidtransClientKey = 'SB-Mid-client-pKhjdsW23b2bUqjV';
+    
+    const script = document.createElement('script');
+    script.src = snapSrcUrl;
+    script.setAttribute('data-client-key', myMidtransClientKey);
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  });
+  
   const inputs = [
     {
       id: 1,
@@ -65,21 +82,31 @@ const App = () => {
         },
         {withCredentials:true}
       )
+      const token = res.data.token
       console.log(res.data);
+
+      window.snap.pay(token, {
+        onSuccess: function(result){
+          /* You may add your own implementation here */
+          
+        },
+        onPending: function(result){
+          /* You may add your own implementation here */
+          
+        },
+        onError: function(result){
+          /* You may add your own implementation here */
+          
+        },
+        onClose: function(){
+          /* You may add your own implementation here */
+          
+        }
+      })
     } catch (err) {
       console.error(err);
     }
   };
-
-  // const sendPostSeat = async (uniqueSeats) => {
-  //   try {
-  //       const res = await axios.post(URL, {'name':uniqueSeats}, {withCredentials:true});
-  //       console.log(res.data);
-  //   } catch (err) {
-  //       // Handle Error Here
-  //       console.error(err);
-  //   }
-  // };
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
