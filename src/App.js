@@ -12,6 +12,7 @@ import {
 import SeatInvoice from './components/pages/SeatInvoice';
 import SeatDum from './components/pages/SeatDum';
 import FormInvoice from './components/pages/FormInvoice';
+import TCPage from './components/pages/CommonHeader/TCPage'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/Seat' element={<SeatDum/>}/>
           <Route path='/FI' element={<FormInvoice/>}/>
+          <Route path='/TermCondition' element={<TCPage/>}/>
         </Routes>
         <Footer/>
     </Router>
