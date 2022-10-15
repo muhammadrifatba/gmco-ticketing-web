@@ -15,7 +15,7 @@ function HeroSection() {
       
       <div class="multi-item">
         <button class="multi-button_button">Saturday</button>
-        <button class="multi-button_button">12/10/2022</button>
+        <button class="multi-button_button">12 Nov 2022</button>
         <button class="multi-button_button"> Auditorium MM FEB UGM</button>
         <Link to='/Seat'>
           <Button 
