@@ -6,7 +6,7 @@ function TCModal() {
     <div className="TCWrap">
       <div className="TCSection">
         <div className="term-text-buy">
-              <h2>Terms Of Service</h2>
+              
               <h3>Pembelian Tiket</h3>
               <ol>
                 <li>Pemesanan tiket HANYA untuk penggunaan pribadi.</li>

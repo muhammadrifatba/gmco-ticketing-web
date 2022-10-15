@@ -49,7 +49,8 @@ function Navbar() {
       <div className="navbar-container container">
         <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
           <img className='navbar-img' src={logo} alt={"logo"}/>
-          GMCO LIVE
+          <h3 className="navbar-title">GMCO LIVE</h3>
+          
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           {click ? <FaTimes/> :<FaBars/>}

@@ -17,11 +17,15 @@
 .navbar-logo {
   color: #e3b386;
   justify-self: start;
-  
   cursor: pointer;
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+.navbar-title{
+  box-shadow: 7px 9px 19px -3px rgba(0, 0, 0, 0);
+
 }
 
 .navbar-img{
@@ -175,3 +179,10 @@
     height: 120px;
   }
 }
+
+@media screen and (min-width: 325px) and (max-width: 690px) {
+  .navbar-img {
+    margin-left: -11vw;
+  }
+}
+  
