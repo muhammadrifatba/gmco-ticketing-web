@@ -17,7 +17,7 @@ function HeroSection() {
         <button class="multi-button_button">Saturday</button>
         <button class="multi-button_button">12/10/2022</button>
         <button class="multi-button_button"> Auditorium MM FEB UGM</button>
-        <Link to='/1'>
+        <Link to='/Seat'>
           <Button 
             className='btn btn-a'
             buttonStyle='primary'
@@ -26,14 +26,7 @@ function HeroSection() {
           >Buy Ticket Now!
           </Button>
         </Link>
-          
-        
-        
       </div>
-      
-      
-      
-
     </div>
   );
 }
