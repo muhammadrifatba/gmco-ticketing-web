@@ -1,0 +1,11 @@
+.TCWrap{
+  position: relative;
+  background-color: white;
+}
+.TCSection{
+  position: relative;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}

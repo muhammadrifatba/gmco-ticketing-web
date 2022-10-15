@@ -10,17 +10,19 @@ import {
 } from 'react-router-dom'
 import Seat from './components/pages/Seat';
 import FormInvoice from './components/pages/FormInvoice';
+import TCPage from './components/pages/CommonHeader/TCPage'
 
 function App() {
   return (
     <Router>
       <Navbar/>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/Seat' element={<Seat/>}/>
-        <Route path='/FI' element={<FormInvoice/>}/>
-      </Routes>
-      <Footer/>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/Seat' element={<Seat/>}/>
+          <Route path='/FI' element={<FormInvoice/>}/>
+          <Route path='/TermCondition' element={<TCPage/>}/>
+        </Routes>
+        <Footer/>
     </Router>
   );
 }

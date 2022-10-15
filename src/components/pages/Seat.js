@@ -37,6 +37,7 @@ function SeatDum() {
       .get(URL)
       .then(res => {
         setSeats(res.data)
+        console.log(res)
       })
       .catch(err => {
       })
