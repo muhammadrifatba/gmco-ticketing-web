@@ -1,3 +1,5 @@
+
+
 .hero-btn{
   margin: 18px;
 }
@@ -28,10 +30,11 @@
   margin-left: -67vw;
   margin-top: -40px;
   
+  
   border-radius: 1px red;
   color: #303030;
   font-size: 3.5vmin ;
-  font-family: 'Metropolis', sans-serif;
+  
 }
 
 .hero-container> h2 {
@@ -39,7 +42,7 @@
   color: #2b2b2b;
   font-size: 6.5vmin;
   margin-top: 10px;
-  font-family: 'Metropolis', sans-serif;
+  
 
 }
 
@@ -58,8 +61,7 @@
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
   border-radius: 10px;
-  margin-left:-3vw;
-  margin-right:47.5% ;
+  margin-right:45vw ;
   margin-top: 15px; 
 }
 
