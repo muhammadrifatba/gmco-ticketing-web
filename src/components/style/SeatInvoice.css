@@ -39,4 +39,9 @@
   .SeatInvoice-body {
     max-width: 25vw;
   }
+
+  .SeatInvoice-table {
+    margin-left: -10%;
+    width: 120%;
+  }
 }

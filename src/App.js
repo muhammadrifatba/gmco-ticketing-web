@@ -10,8 +10,10 @@ import {
 } from 'react-router-dom'
 import NotFound from './components/pages/NotFound';
 import Seat from './components/pages/Seat';
+// import SeatFunc from './components/pages/SeatFunc'
 import FormInvoice from './components/pages/FormInvoice';
 import TCPage from './components/pages/TCPage';
+import Dummy from './components/pages/testmodal'
 
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
           <Route path='/FI' element={<FormInvoice/>}/>
           <Route path='/TermCondition' element={<TCPage/>}/>
           <Route path='/*' element={<NotFound/>}/>
-          
+          <Route path='/dum' element={<Dummy/>}/>
         </Routes>
         <Footer/>
     </Router>
