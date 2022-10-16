@@ -127,11 +127,14 @@ function SeatDum() {
       OnlyUnique(seatsOdd)
     }
 
-    if(uniqueSeats.length !== 0)
+    if(uniqueSeats.length !== 0 && uniqueSeats.length < 6)
     {
       console.log("Final Selected: " + uniqueSeats);
       sendPostSeat(uniqueSeats)
       setTimeout(() => navigate("/FI"), 1000)
+    }
+    if(uniqueSeats.length > 5){
+      alert('Jumlah pembelian maks adalah 5 tiket')
     }
     else {
       alert('Please Select Seats')
@@ -300,7 +303,7 @@ function SeatDum() {
   // Run HTML
   return (
     <div className='Seat-body'>
-      <PageHeader title={"Movie Seat Selection"} bgColour="true"/>
+      <PageHeader title={"Seat Selection"} bgColour="true"/>
       <div className="Seat-container">
         <ul className="Seat-type">
           <li className="smallBox greenBox">Kursi Dipilih</li>
