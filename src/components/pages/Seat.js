@@ -131,9 +131,9 @@ function SeatDum() {
     {
       console.log("Final Selected: " + uniqueSeats);
       sendPostSeat(uniqueSeats)
-      setTimeout(() => navigate("/FI"), 1000)
+      setTimeout(() => navigate("/FI"), 500)
     }
-    if(uniqueSeats.length > 5){
+    else if(uniqueSeats.length > 5){
       alert('Jumlah pembelian maks adalah 5 tiket')
     }
     else {
