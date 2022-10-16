@@ -23,9 +23,9 @@ export const homeObjTwo = {
   description:
     'Get your seat now. Choose your preferred seat and enjoy the concert!',
   description2:  '',
-  buttonLabel: 'Get Your Seat!',
+  buttonLabel: ' Get Your Seat !',
   imgStart: '',
-  img: require ('../../../images/salpriadi.jpg'),
+  img: require ('../../../images/ticket.webp'),
   alt: 'images/logo_gmco.jpeg',
   link: '/#/Seat'
 };

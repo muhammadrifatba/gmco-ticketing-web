@@ -3,3 +3,9 @@ export const HeaderOne = {
   title: 'Terms & Condition'
 
 };
+
+export const HeaderThree = {
+  bgColour: true,
+  title: '404 NOT FOUND'
+
+};

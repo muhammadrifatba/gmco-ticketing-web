@@ -47,6 +47,8 @@
 }
 
 .multi-item{
+  text-align: center;
+  display: flex;
   background: rgba( 255, 255, 255, 0.5 );
   box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 4px );
@@ -61,7 +63,7 @@
   font-size: 20px;
   border: none;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 20px 20px ;
   color: #2b2b2b;
   transition: background 0.2s ease-in-out;
   background-color: var(--secondary);
@@ -151,33 +153,41 @@
 
   
   .multi-item{
-    width: 70vw;
+    display: inline-block;
+    width: 60vw;
     margin-left:8vw ;
     margin-top: -5px;
+    font-size: 16px;
   }
 
-  .multi-button_button{
+
+
+  /* .multi-button_button{
     color: white;
     font-size: 14px;
-    padding: 5px 5px;
     
+    border-style:solid ;
     margin-bottom: 5px;
     margin-top: 5px;
-  }
-
-  .multi-item > Button{
-    margin-left: 3vw;
-    margin-right: 5vw;
-    margin-bottom: 2vw;
-  }
+  } */
+ 
+}
 
   @media screen and (min-width: 325px) and (max-width: 690px) {
     .hero-container > p{
       margin-right: -1vw;
     }
-    .multi-item > Button{
-      margin-left: 3vw;
-      margin-right: 7vw;
+    
+    .herosection-butbuttonpos{
+      text-align: center;
+    }
+    .multi-item{
+      display: inline-block;
+      
+    }
+
+    .multi-button_button{
+      padding: 8px 0px;
+      /* border-style: solid; */
     }
   }
-}

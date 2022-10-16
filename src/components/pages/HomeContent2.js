@@ -58,11 +58,13 @@ function HomeContent2({
                 >
                   {description2}
                 </p>
-                <a href={link}>
-                  <Button buttonSize='btn--wide' buttonColor='red'>
-                    {buttonLabel}
-                  </Button>
-                </a>
+                <div className="HomeContent2-ButtonPos">
+                  <a href={link} >
+                    <Button buttonSize='btn--wide' buttonColor='red'>
+                      {buttonLabel}
+                    </Button>
+                  </a>
+                </div>
                   
                 
               </div>

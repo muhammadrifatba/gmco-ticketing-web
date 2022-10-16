@@ -8,9 +8,11 @@ import {
   Route, 
   Routes
 } from 'react-router-dom'
+import NotFound from './components/pages/NotFound';
 import Seat from './components/pages/Seat';
 import FormInvoice from './components/pages/FormInvoice';
-import TCPage from './components/pages/CommonHeader/TCPage'
+import TCPage from './components/pages/CommonHeader/TCPage';
+
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path='/Seat' element={<Seat/>}/>
           <Route path='/FI' element={<FormInvoice/>}/>
           <Route path='/TermCondition' element={<TCPage/>}/>
+          <Route path='/e' element={<NotFound/>}/>
+          
         </Routes>
         <Footer/>
     </Router>
