@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import '../style/Seat.css'
 import { useNavigate } from 'react-router-dom';
-import { Button } from './Button';
-import PageHeader from './PageHeader' 
+import { Button } from './utility/Button';
+import axios from 'axios'
+import PageHeader from './utility/PageHeader' 
+import '../style/Seat.css'
 
 function SeatDum() {
   const navigate = useNavigate();

@@ -3,14 +3,13 @@ import {Link} from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import {FaBars, FaTimes} from 'react-icons/fa';
 import logo from '../../images/Logo-FIX.png';
-import { click } from '@testing-library/user-event/dist/click';
-import {Button} from './Button'
+import {Button} from './utility/Button'
 import '../style/Navbar.css'
 
 function Navbar() {
   const [click, setClick]= useState(false)
   const [button, setButton] = useState(true);
-  const[navbar,setNavbar] = useState(true)
+  const [navbar,setNavbar] = useState(true)
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
