@@ -29,11 +29,13 @@
 .btn--medium {
   padding: 8px 20px;
   font-size: 18px;
+  font-family: 'Metropolis', sans-serif;
 }
 
 .btn--large {
   padding: 12px 26px;
   font-size: 20px;
+  font-family: 'Metropolis', sans-serif;
 }
 
 .btn--mobile {
@@ -52,6 +54,7 @@
 .btn--wide {
   padding: 12px 64px;
   font-size: 20px;
+  font-family: 'Metropolis', sans-serif;
 }
 
 .btn--large:hover,
@@ -127,8 +130,11 @@
 
 
   .btn--medium{
-    padding: 7px 10px;
-    font-size: 14px;
-    margin: -20px;
+    padding: 15px 20px;
+    font-size: 20px;
+    margin: 20px;
+    font-family: 'Metropolis', sans-serif;
+    font-weight: bold;
+
   }
 }

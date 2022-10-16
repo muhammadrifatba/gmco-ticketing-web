@@ -1,7 +1,7 @@
 .lost-container{
   height: 40vh;
   width: 100%;
-  display: block;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -39,7 +39,7 @@
 }
 
 .sad-mac {
-	
+	background: #fff;
 	margin: 0 auto 7em auto;
 	width: 23em;
 	height: 30em;

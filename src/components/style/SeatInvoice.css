@@ -1,0 +1,38 @@
+.SeatInvoice-body {
+  width: auto;
+  color: #1c2237;;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.SeatInvoice-title {
+  color: brown;
+  padding: 1vh 0;
+  text-align: center;
+}
+
+.SeatInvoice-table {
+  margin-left: -5%;
+  margin-bottom: 1vh;
+  width: 110%;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1.5px;
+  font-weight: 100;
+}
+
+.SeatInvoice-item {
+  font-weight: 100;
+}
+
+/* Tabley */
+@media screen and (min-width: 600px) {
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .SeatInvoice-body {
+    width: 33.5vw;
+  }
+}

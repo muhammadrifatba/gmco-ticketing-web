@@ -1,0 +1,26 @@
+.FormInvoice-cont {
+  display: inline-block;
+  justify-content: center;
+  padding: 1vh 5vh;
+}
+
+.FormInvoice-item {
+  margin-bottom: 1vh;
+}
+
+/* Tabley */
+@media screen and (min-width: 600px) {
+  .FormInvoice-cont {
+    display: flex;
+    justify-content: center;
+    gap: 2vh;
+  }
+
+  .FormInvoice-item {
+    margin-bottom: 0;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+}

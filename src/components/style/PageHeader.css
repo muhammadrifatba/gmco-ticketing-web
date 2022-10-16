@@ -1,5 +1,5 @@
 .PageHeader-container{
-  height: 40vh;
+  height: 30vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,16 +13,16 @@
 .PageHeader-img{
   object-fit: cover;
   width: 100%;
-  height: 40vh;
+  height: 30vh;
   position: absolute;
   z-index: -1;
   border-radius: 0px;
   background-attachment: scroll;
   object-position: 75%;
-
 }
 
 .headertitle{
   box-shadow: 7px 9px 12px -7px rgba(26, 22, 33, 0);
+  margin-top: 5vh;
   color:white;
 }
