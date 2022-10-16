@@ -29,6 +29,10 @@
   color: white;
 }
 
+.Seat-btn {
+  padding-top: 1vh;
+}
+
 /* Fungsi kotak2 kuris gajelas */
 li.smallBox {
   text-align: left;
