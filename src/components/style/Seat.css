@@ -68,6 +68,7 @@ td{
 .seatGap, .seatVGap{
   content: "";
   height: 20px;
+  min-width: 35px;
 }
 
 .Seat-label {

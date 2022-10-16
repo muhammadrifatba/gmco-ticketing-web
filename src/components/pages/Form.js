@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import FormInput from "./FormInput";
+import FormInput from "./FormInput"
+import swal from 'sweetalert';
 import "../style/Form.css";
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     const snapSrcUrl = process.env.REACT_APP_snapSrcUrl;
-    const myMidtransClientKey = process.env.myMidtransClientKey;
+    const myMidtransClientKey = process.env.REACT_APP_myMidtransClientKey;
     
     const script = document.createElement('script');
     script.src = snapSrcUrl;
@@ -84,28 +85,29 @@ const App = () => {
         {withCredentials:true}
       )
       const token = res.data.token
+      console.log("data");
       console.log(res.data);
 
       window.snap.pay(token, {
         onSuccess: function(result){
-          alert("payment success!, check your email"); console.log(result);
-          setTimeout(() => navigate("/FI"), 1000)
-          
+          swal({
+            title: "Pembayaran Berhasil",
+            text: "Cek Email untuk Tiket dan Info Lebih Lanjut",
+          })
+          navigate("/")     
         },
         onPending: function(result){
-          alert("wating your payment!"); console.log(result);
-          
+          swal("Menunggu Pembayaran!");         
         },
         onError: function(result){
-          alert("payment failed!"); console.log(result);
-          
+          swal("Pembayaran Gagal!");
         },
         onClose: function(){
-          alert('you closed the popup without finishing the payment');
-          
+          swal('Anda Menutup Popup Sebelum Menyelesaikan Pembayaran');
         }
       })
     } catch (err) {
+      console.log("error");
       console.error(err);
     }
   };
