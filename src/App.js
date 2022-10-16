@@ -23,7 +23,7 @@ function App() {
           <Route path='/Seat' element={<Seat/>}/>
           <Route path='/FI' element={<FormInvoice/>}/>
           <Route path='/TermCondition' element={<TCPage/>}/>
-          <Route path='/e' element={<NotFound/>}/>
+          <Route path='/*' element={<NotFound/>}/>
           
         </Routes>
         <Footer/>
