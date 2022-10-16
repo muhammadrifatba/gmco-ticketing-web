@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/TCModal.css'
+import '../../style/TCModal.css'
 
 function TCModal() {
   return (

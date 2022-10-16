@@ -1,4 +1,4 @@
-import React, { Component, useState,useEffect, useReducer } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../style/SeatInvoice.css'
 
@@ -55,7 +55,5 @@ function Invoice() {
       </div>
     )
   }
-
-
 
 export default Invoice

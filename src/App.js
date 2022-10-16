@@ -11,7 +11,7 @@ import {
 import NotFound from './components/pages/NotFound';
 import Seat from './components/pages/Seat';
 import FormInvoice from './components/pages/FormInvoice';
-import TCPage from './components/pages/CommonHeader/TCPage';
+import TCPage from './components/pages/TCPage';
 
 
 function App() {

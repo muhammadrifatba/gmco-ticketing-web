@@ -73,7 +73,7 @@ td{
 .Seat-label {
   display: flex;
   margin-top: -15px;
-  margin-left: -5px;
+  margin-left: -0.5rem;
   justify-content: center;
   color: white;
 }
