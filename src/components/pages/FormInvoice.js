@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './Form'
 import Invoice from './SeatInvoice'
-import PageHeader from './utils/PageHeader';
+import PageHeader from './utility/PageHeader';
 import '../style/FormInvoice.css'
 
 function FormInvoice() {

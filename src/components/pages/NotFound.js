@@ -1,8 +1,8 @@
 import React from 'react'
-import PageHeader from './utils/PageHeader'
-import {HeaderThree} from './utils/HeaderData'
+import PageHeader from './utility/PageHeader'
+import {HeaderThree} from './utility/HeaderData'
 import { Link } from 'react-router-dom';
-import { Button } from './utils/Button'
+import { Button } from './utility/Button'
 import '../style/NotFound.css'
 
 function notFound() {

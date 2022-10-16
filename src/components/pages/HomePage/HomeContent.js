@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../utils/Button';
+import { Button } from '../utility/Button';
 import { Fade } from "react-awesome-reveal";
 import '../../style/HomeContent.css';
 

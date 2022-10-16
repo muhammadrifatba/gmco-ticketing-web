@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import {FaBars, FaTimes} from 'react-icons/fa';
 import logo from '../../images/Logo-FIX.png';
-import {Button} from './utils/Button'
+import {Button} from './utility/Button'
 import '../style/Navbar.css'
 
 function Navbar() {
