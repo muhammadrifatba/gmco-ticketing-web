@@ -56,30 +56,30 @@ function Navbar() {
           {click ? <FaTimes/> :<FaBars/>}
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          {/* <li className='nav-item'>
-            <Link to='/'className='nav-links' onClick={closeMobileMenu}>Home</Link>
-          </li> */}
-
           <li className='nav-item'>
-            <Link to='/Seat'className='nav-links' onClick={closeMobileMenu}>Buy Ticket</Link>
+            <Link to='/'className='nav-links' onClick={closeMobileMenu}>Home</Link>
           </li>
 
           <li className='nav-item'>
-            <Link to='/about-us'className='nav-links' onClick={closeMobileMenu}>About Us</Link>
+            <Link to='/1'className='nav-links' onClick={closeMobileMenu}>Buying Guide</Link>
+          </li>
+
+          <li className='nav-item'>
+            <Link to='/TermCondition'className='nav-links' onClick={closeMobileMenu}>Terms & Conditions</Link>
           </li>
           <li className="nav-btn">
             {button ? (
-                  <Link to='/admin-login' className='btn-link'>
-                    <Button buttonStyle='btn--outline'>Admin Login</Button>
+                  <Link to='/Seat' className='btn-link'>
+                    <Button buttonStyle='btn--outline'>Buy Ticket</Button>
                   </Link>
                 ) : (
-                  <Link to='/admin-login' className='btn-link'>
+                  <Link to='/Seat' className='btn-link'>
                     <Button
                       buttonStyle='btn--outline'
                       buttonSize='btn--mobile'
                       onClick={closeMobileMenu}
                     >
-                      Admin Login
+                      Buy Tikcet
                     </Button>
                   </Link>
                 )}

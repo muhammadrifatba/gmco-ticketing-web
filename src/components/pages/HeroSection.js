@@ -13,20 +13,20 @@ function HeroSection() {
       <p>WHAT ARE YOU WAITING FOR?</p>
       <h2>GMCO Live from the Living Room:<br/>Indonesian Pop Now and Then</h2>
       
-      <div class="multi-item">
-        <button class="multi-button_button">Saturday</button>
-        <button class="multi-button_button">12 Nov 2022</button>
-        <button class="multi-button_button"> Auditorium MM FEB UGM</button>
-        <Link to='/Seat'>
-          <Button 
-            className='btn btn-a'
-            buttonStyle='primary'
-            buttonSize='btn--medium'
-            buttonColor='green'
-          >Buy Ticket Now!
-          </Button>
-        </Link>
-      </div>
+        <div class="multi-item">
+          <p class="multi-button_button">Saturday</p>
+          <p class="multi-button_button">12/10/2022</p>
+          <p class="multi-button_button"> Auditorium MM FEB UGM</p>
+          <Link to='/Seat'>
+            <Button 
+              className='btn btn-a'
+              buttonStyle='primary'
+              buttonSize='btn--medium'
+              buttonColor='green'
+            >Buy Ticket Now!
+            </Button>
+          </Link>
+        </div>
     </div>
   );
 }
