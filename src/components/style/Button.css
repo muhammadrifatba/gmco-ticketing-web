@@ -3,8 +3,7 @@
 }
 
 .btn {
-  margin: 15px;
-  padding: 8px 20px;
+  /* margin: 18px; */
   border-radius: 4px;
   outline: none;
   border: none;
@@ -27,9 +26,9 @@
 }
 
 .btn--medium {
-  padding: 8px 20px;
-  font-size: 18px;
-  font-family: 'Metropolis', sans-serif;
+  padding: 7px 10px;
+  font-size: 16px;
+  
 }
 
 .btn--large {
@@ -130,8 +129,8 @@
 
 
   .btn--medium{
-    padding: 15px 20px;
-    font-size: 20px;
+    padding: 7px 10px;
+    font-size: 14px;
     margin: 20px;
     font-family: 'Metropolis', sans-serif;
     font-weight: bold;
