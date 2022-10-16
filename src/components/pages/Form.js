@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import FormInput from "./FormInput"
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import "../style/Form.css";
 
 const App = () => {
@@ -85,25 +85,28 @@ const App = () => {
         {withCredentials:true}
       )
       const token = res.data.token
-      console.log("data");
-      console.log(res.data);
+      console.log(res.data)
+
+      if (res.data.status === 'fail'){
+        Swal.fire((res.data.message).toString())
+      }
 
       window.snap.pay(token, {
         onSuccess: function(result){
-          swal({
+          Swal.fire({
             title: "Pembayaran Berhasil",
             text: "Cek Email untuk Tiket dan Info Lebih Lanjut",
           })
           navigate("/")     
         },
         onPending: function(result){
-          swal("Menunggu Pembayaran!");         
+          Swal.fire("Menunggu Pembayaran!");         
         },
         onError: function(result){
-          swal("Pembayaran Gagal!");
+          Swal.fire("Pembayaran Gagal!");
         },
         onClose: function(){
-          swal('Anda Menutup Popup Sebelum Menyelesaikan Pembayaran');
+          Swal.fire('Anda Menutup Popup Sebelum Menyelesaikan Pembayaran');
         }
       })
     } catch (err) {
