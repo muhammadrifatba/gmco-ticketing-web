@@ -1,18 +1,20 @@
 import React from 'react';
 import Form from './Form'
 import Invoice from './SeatInvoice'
-import PageHeader from './PageHeader';
+import PageHeader from './utility/PageHeader';
 import '../style/FormInvoice.css'
 
 function FormInvoice() {
   return (
     <>
       <PageHeader title={"Order Confirmation"} bgColour="true"/>
-      <div className='FormInvoice-cont'>
-        <div className="FormInvoice-item">
-          <Invoice/>
+      <div className='FormInvoice-wrap'>
+        <div className='FormInvoice-cont'>
+          <div className="FormInvoice-item">
+            <Invoice/>
+          </div>
+          <Form/>
         </div>
-        <Form/>
       </div>
     </>
   );

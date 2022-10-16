@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style/HomeContent2.css';
-import { Button } from './Button';
+import { Button } from '../utility/Button';
 import { Fade } from "react-awesome-reveal";
+import '../../style/HomeContent2.css';
 
 function HomeContent2({
   lightBg,

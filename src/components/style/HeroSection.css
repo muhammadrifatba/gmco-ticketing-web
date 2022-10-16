@@ -1,3 +1,6 @@
+.hero-btn{
+  margin: 18px;
+}
 .hero-images{
   object-fit: cover;
   width: 100%;
@@ -48,12 +51,14 @@
 }
 
 .multi-item{
+  
+  display: flex;
   background: rgba( 255, 255, 255, 0.5 );
   box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
   border-radius: 10px;
-  margin-left:1vw;
+  margin-left:-3vw;
   margin-right:47.5% ;
   margin-top: 15px; 
 }
@@ -61,9 +66,7 @@
 .multi-button_button{
   font-family: "Metropolis" sans-serif;
   font-size: 20px;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
+  padding: 23px 20px ;
   color: #2b2b2b;
   transition: background 0.2s ease-in-out;
   background-color: var(--secondary);
@@ -101,6 +104,9 @@
 }
 
 @media screen and (max-width: 960px) {
+  .hero-btn{
+    padding: 5px 0;
+  }
   .hero-container > h2 {
     margin-left: 3vw;
     margin-top: 5px;
@@ -111,7 +117,7 @@
   }
 
   .multi-item{
-    margin-left: -0.2%;
+    margin-left: -5vw;
     margin-right: 10%;
     margin: -15 px;
   }
@@ -154,42 +160,47 @@
   }
   
   .multi-item{
-    width: 85vw;
-    margin-left:4vw;
-    margin-right:4vw;
-    margin-top: -15px;
-    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 60vw;
+    margin-left:8vw ;
+    margin-top: -5px;
+    font-size: 16px;
   }
 
-  .multi-button_button{
+
+
+  /* .multi-button_button{
     color: white;
-    font-size: 18px;
-    padding: 5px 15px;
-    display: flex;
+    font-size: 14px;
+    
+    border-style:solid ;
     margin-bottom: 5px;
-    margin-top: 20px;
-    justify-content: center;
-
-
-  }
-
-  .multi-item > Button{
-    margin-left: 3vw;
-    margin-right: 5vw;
-    margin-bottom: 2vw;
-  }
+    margin-top: 5px;
+  } */
+ 
+}
 
   @media screen and (min-width: 325px) and (max-width: 690px) {
-    .hero-container > p{
-      margin-left: -32vw;
-      margin-right: -1vw;
-      font-size: 16px;
+    .hero-btn{
+      padding: 0 ;
     }
-    .multi-item > Button{
-      display: flex;
-      margin-left: 3vw;
-      margin-right: 7vw;
-      justify-content: center;
+    .hero-container > p{
+      font-size: 14px;
+      margin-right: -6vw;
+      
+    }
+    
+    .herosection-butbuttonpos{
+      text-align: center;
+    }
+    .multi-item{
+      display: inline-block;
+      
+    }
+
+    .multi-button_button{
+      padding: 8px 0px;
+      /* border-style: solid; */
     }
   }
-}

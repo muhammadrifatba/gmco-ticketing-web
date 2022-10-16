@@ -23,9 +23,18 @@ export const homeObjTwo = {
   description:
     'Get your seat now. Choose your preferred seat and enjoy the concert!',
   description2:  '',
-  buttonLabel: 'Get Your Seat!',
+  buttonLabel: ' Get Your Seat !',
   imgStart: '',
-  img: require ('../../../images/salpriadi.jpg'),
+  img: require ('../../../images/ticket.webp'),
   alt: 'images/logo_gmco.jpeg',
   link: '/#/Seat'
+};
+
+export const BlogObjOne = {
+  BlogTitle:'Terms and Conditions',
+  BlogText:'Make sure to read carefully the following terms and conditions before buying a ticket.',
+  Blogimg :require ('../../../images/TCim.jpg'),
+  Blogalt:'',
+  BlogButtonLabel:'Read More',
+  url:'/#/TermCondition'
 };

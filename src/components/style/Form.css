@@ -8,13 +8,19 @@ form{
     background-color: white;
     color: #1c2237;;
     border-radius: 10px;
-    border-style: solid;
+    /* border-style: solid; */
     padding: 1vw;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 5px #ccc;
 }
 
 .Form-title{
     text-align: center;
     color: brown;
+}
+
+.Form-label {
+    text-align: left;
 }
 
 .form-button{
