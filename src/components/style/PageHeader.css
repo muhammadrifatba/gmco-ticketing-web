@@ -25,4 +25,5 @@
   box-shadow: 7px 9px 12px -7px rgba(26, 22, 33, 0);
   margin-top: 5vh;
   color:white;
+  font-size: calc(2rem + 0.5vw);
 }

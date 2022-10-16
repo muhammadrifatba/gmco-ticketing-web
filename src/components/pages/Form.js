@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaBlackTie } from "react-icons/fa";
-import "../style/Form.css";
+import { useNavigate } from 'react-router-dom';
 import FormInput from "./FormInput";
+import "../style/Form.css";
 
 const App = () => {
   const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
-  
+  const navigate = useNavigate();
+
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -15,8 +16,8 @@ const App = () => {
   });
 
   useEffect(() => {
-    const snapSrcUrl = 'https://app.sandbox.midtrans.com/snap/snap.js';
-    const myMidtransClientKey = 'SB-Mid-client-pKhjdsW23b2bUqjV';
+    const snapSrcUrl = process.env.REACT_APP_snapSrcUrl;
+    const myMidtransClientKey = process.env.myMidtransClientKey;
     
     const script = document.createElement('script');
     script.src = snapSrcUrl;
@@ -87,19 +88,20 @@ const App = () => {
 
       window.snap.pay(token, {
         onSuccess: function(result){
-          /* You may add your own implementation here */
+          alert("payment success!, check your email"); console.log(result);
+          setTimeout(() => navigate("/FI"), 1000)
           
         },
         onPending: function(result){
-          /* You may add your own implementation here */
+          alert("wating your payment!"); console.log(result);
           
         },
         onError: function(result){
-          /* You may add your own implementation here */
+          alert("payment failed!"); console.log(result);
           
         },
         onClose: function(){
-          /* You may add your own implementation here */
+          alert('you closed the popup without finishing the payment');
           
         }
       })
@@ -116,14 +118,16 @@ const App = () => {
     <div className="app">
       <form onSubmit={handleSubmit}>
         <h1 className="Form-title">Data Pemesan</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
+        <div className="Form-label">
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
+        </div>
         <button className="form-button">Submit</button>
       </form>
     </div>

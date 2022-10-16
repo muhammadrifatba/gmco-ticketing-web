@@ -1,7 +1,11 @@
+.FormInvoice-wrap {
+  text-align: center;
+  min-height: 75vh;
+}
+
 .FormInvoice-cont {
   display: inline-block;
-  justify-content: center;
-  padding: 1vh 5vh;
+  padding: 2vh 0;
 }
 
 .FormInvoice-item {
@@ -14,6 +18,11 @@
     display: flex;
     justify-content: center;
     gap: 2vh;
+  }
+
+  .FormInvoice-wrap {
+    text-align: center;
+    min-height: 55vh;
   }
 
   .FormInvoice-item {

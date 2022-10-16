@@ -1,6 +1,6 @@
 import React from 'react'
-import '../style/BlogCard.css';
-import { Button } from './Button';
+import { Button } from '../utils/Button';
+import '../../style/BlogCard.css';
 
 function BlogCard({
   BlogTitle,

@@ -1,14 +1,13 @@
 import React from 'react';
-import '../style/HeroSection.css';
-import { Button } from './Button';
+import { Button } from '../utils/Button';
 import { Link } from 'react-router-dom';
-import image from '../../images/herov1.png';
-import sp from '../../images/salpriadi.jpg';
+import image from '../../../images/herov1.png';
+import '../../style/HeroSection.css';
 
 function HeroSection() {
   return (
     <div className='hero-container'>
-     <img class='hero-images' src ={image}></img>
+     <img class='hero-images' alt='hero-img' src ={image}></img>
      
       <p>WHAT ARE YOU WAITING FOR?</p>
       <h2>GMCO Live from the Living Room:<br/>Indonesian Pop Now and Then</h2>
@@ -26,7 +25,6 @@ function HeroSection() {
                 buttonColor='green'
               >Buy Ticket Now!
               </Button>
-      
             </Link>
           </div>
         </div>

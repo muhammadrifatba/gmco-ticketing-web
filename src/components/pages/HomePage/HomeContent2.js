@@ -1,9 +1,9 @@
 import React from 'react';
-import '../style/HomeContent.css';
-import { Button } from './Button';
+import { Button } from '../utils/Button';
 import { Fade } from "react-awesome-reveal";
+import '../../style/HomeContent2.css';
 
-function HomeContent({
+function HomeContent2({
   lightBg,
   topLine,
   lightText,
@@ -15,7 +15,7 @@ function HomeContent({
   img,
   alt,
   imgStart,
-  url
+  link
 }) {
   return (
     <div className={lightBg ? 'home__hero-section' : 'home__hero-section darkBg'}>
@@ -27,13 +27,6 @@ function HomeContent({
             display: 'flex',
             flexDirection: imgStart === 'start' ? 'row-reverse' : 'row'
           }}>
-          
-          <div className='col'>
-            <div className='home__hero-img-wrapper'>
-              <img src={img} alt={alt} className='home__hero-img' />
-            </div>
-          </div>
-
           <div className='col'>
             <div className='home__hero-text-wrapper'>
               <div className='top-line'>{topLine}</div>
@@ -57,13 +50,20 @@ function HomeContent({
                 }>
                 {description2}
               </p>
-              <a href={url}>
-                <Button buttonSize='btn--wide' buttonColor='green'>
+              <a href={link}>
+                <Button buttonSize='btn--wide' buttonColor='red'>
                   {buttonLabel}
                 </Button>
               </a>
+                
             </div>
           </div>
+          <div className='col'>
+            <div className='home__hero-img-wrapper'>
+              <img src={img} alt={alt} className='home__hero-img' />
+            </div>
+          </div>
+
         </div>
       </div>
       </Fade>
@@ -71,4 +71,4 @@ function HomeContent({
   );
 }
 
-export default HomeContent;
+export default HomeContent2;

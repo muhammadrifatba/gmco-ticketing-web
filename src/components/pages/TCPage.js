@@ -1,8 +1,7 @@
 import React from 'react';
-import TCModal from '../TCModal'
-import PageHeader from '../PageHeader'
-import { HeaderOne} from './HeaderData';
-
+import TCModal from './utils/TCModal'
+import PageHeader from './utils/PageHeader'
+import { HeaderOne } from './utils/HeaderData';
 
 function TCPage() {
   return (

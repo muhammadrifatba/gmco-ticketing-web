@@ -1,8 +1,10 @@
 .SeatInvoice-body {
   width: auto;
-  color: #1c2237;;
-  border-style: solid;
+  color: #1c2237;
+  /* border-style: solid; */
+  padding: 0.5rem;
   border-radius: 10px;
+  box-shadow: 3px 3px 5px 5px #ccc;
 }
 
 .SeatInvoice-title {
@@ -27,12 +29,14 @@
 
 /* Tabley */
 @media screen and (min-width: 600px) {
-
+  .SeatInvoice-body {
+    width: 33.5vw;
+  }
 }
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
   .SeatInvoice-body {
-    width: 33.5vw;
+    max-width: 25vw;
   }
 }
