@@ -9,7 +9,7 @@ export const homeObjOne = {
   description2:  'Selain penampilan dari para pemain GMCO, konser ini akan dimeriahkan oleh penampilan bintang tamu, penyanyi pria nasional, yaitu Sal Priadi. GMCO Live from the Living Room akan menjadi konser orkestra intim yang unik dan diminati banyak penikmat musik Yogyakarta.',
   buttonLabel: 'More About GMCO',
   imgStart: '',
-  img: require ('../../../images/logo_gmco.png'),
+  img: require ('../../../images/logo_gmco.webp'),
   alt: 'images/logo_gmco.jpeg',
   url: 'https://gmco.ukm.ugm.ac.id/'
 };
@@ -33,7 +33,7 @@ export const homeObjTwo = {
 export const BlogObjOne = {
   BlogTitle:'Terms and Conditions',
   BlogText:'Make sure to read carefully the following terms and conditions before buying a ticket.',
-  Blogimg :require ('../../../images/TCim.jpg'),
+  Blogimg :require ('../../../images/TCim.webp'),
   Blogalt:'',
   BlogButtonLabel:'Read More',
   url:'/#/TermCondition'
