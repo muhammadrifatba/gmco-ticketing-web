@@ -1,15 +1,15 @@
-import cara0 from './imgTataCara/cara0.webp'
-import cara1 from './imgTataCara/cara1.webp'
-import cara2 from './imgTataCara/cara2.webp'
-import cara3 from './imgTataCara/cara3.webp'
-import cara4 from './imgTataCara/cara4.webp'
-import cara5 from './imgTataCara/cara5.webp'
+import Tatacara1 from '../../../images/imgTataCara/tatacara1'
+import Tatacara2 from '../../../images/imgTataCara/tatacara2'
+import Tatacara3 from '../../../images/imgTataCara/tatacara3'
+import Tatacara4 from '../../../images/imgTataCara/tatacara4'
+import Tatacara5 from '../../../images/imgTataCara/tatacara5'
+import Tatacara6 from '../../../images/imgTataCara/tatacara6'
 
 export{
-  cara0,
-  cara1,
-  cara2,
-  cara3,
-  cara4,
-  cara5,
+  Tatacara1,
+  Tatacara2,
+  Tatacara3,
+  Tatacara4,
+  Tatacara5,
+  Tatacara6
 }
