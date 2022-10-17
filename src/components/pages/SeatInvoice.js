@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useNavigate} from 'react'
 import axios from 'axios'
 import '../style/SeatInvoice.css'
 
@@ -6,6 +6,7 @@ function Invoice() {
   const[seatsInvoice, setSeatsInvoice] = useState([])
   const[seatName, setSeatName] = useState([])
   const[seatPrice, setSeatPrice] = useState([])
+  const navigate = useNavigate();
 
   const URL = "https://dev.bekisar.net/api/v1/ticketing/order"
 
@@ -17,13 +18,17 @@ function Invoice() {
         console.log(res.data)
         setSeatName(res.data.name)
         setSeatPrice(res.data.price)
+
+        if(res.data === 'anda belum melakukan pemilihan kursi'){
+          navigate("/error")
+        }
       })
       .catch(err => {
       })
   }, [])
 
-  console.log(seatsInvoice)
-  console.log(Object.values(seatsInvoice))
+  // console.log(seatsInvoice)
+  // console.log(Object.values(seatsInvoice))
 
     return (
       <div className='SeatInvoice-cont'>
