@@ -272,9 +272,15 @@
       padding: 0 ;
     }
     .hero-container > p{
+      text-align: center;
       font-size: 14px;
-      margin-right: -6vw;
+      margin-left: 0vw;
       
+    }
+
+    .hero-container >h2{
+      text-align: center;
+
     }
     
     .herosection-butbuttonpos{
