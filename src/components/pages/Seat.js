@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './utility/Button';
-import axios from 'axios'
+import axios from 'axios';
 import PageHeader from './utility/PageHeader' 
 import Swal from 'sweetalert2';
 import ModalImage from "react-modal-image";
