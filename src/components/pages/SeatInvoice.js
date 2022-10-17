@@ -8,7 +8,7 @@ function Invoice() {
   const[seatPrice, setSeatPrice] = useState([])
   const navigate = useNavigate();
 
-  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
+  const URL = "https://dev.bekisar.net/api/v1/ticketing/order"
 
   useEffect(() => { 
     axios

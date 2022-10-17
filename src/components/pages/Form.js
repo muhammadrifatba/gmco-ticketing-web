@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import "../style/Form.css";
 
 const App = () => {
-  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
+  const URL = "https://dev.bekisar.net/api/v1/ticketing/order"
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -17,8 +17,8 @@ const App = () => {
   });
 
   useEffect(() => {
-    const snapSrcUrl = process.env.REACT_APP_snapSrcUrl;
-    const myMidtransClientKey = process.env.REACT_APP_myMidtransClientKey;
+    const snapSrcUrl = "https://app.sandbox.midtrans.com/snap/snap.js"
+    const myMidtransClientKey = "SB-Mid-client-pKhjdsW23b2bUqjV"
     
     const script = document.createElement('script');
     script.src = snapSrcUrl;
