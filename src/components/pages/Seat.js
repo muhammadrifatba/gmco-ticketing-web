@@ -23,7 +23,7 @@ function SeatDum() {
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
   // Get Post URL
-  const URL = "https://dev.bekisar.net/api/v1/ticketing/booking"
+  const URL = "https://gmco-event.com/api/v1/ticketing/booking"
 
   // send Post Seat
   const sendPostSeat = async (uniqueSeats) => {

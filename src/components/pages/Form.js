@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import "../style/Form.css";
 
 const App = () => {
-  const URL = "https://dev.bekisar.net/api/v1/ticketing/order"
+  const URL = "https://gmco-event.com/api/v1/ticketing/order"
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
