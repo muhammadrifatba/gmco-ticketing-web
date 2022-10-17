@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from './utility/Button';
 import axios from 'axios'
 import PageHeader from './utility/PageHeader' 
+import Swal from 'sweetalert2';
+import ModalImage from "react-modal-image";
+import img from '../../images/seatprice.webp'
+import img1 from '../../images/harga-logo.svg'
 import '../style/Seat.css'
 
 function SeatDum() {
@@ -134,10 +138,10 @@ function SeatDum() {
       setTimeout(() => navigate("/FI"), 500)
     }
     else if(uniqueSeats.length > 5){
-      alert('Jumlah pembelian maks adalah 5 tiket')
+      Swal.fire('Jumlah pembelian maks adalah 5 tiket')
     }
     else {
-      alert('Please Select Seats')
+      Swal.fire('Please Select Seats')
     }
   };
   
@@ -316,14 +320,16 @@ function SeatDum() {
         <div className="Seat-structure" style={{overflowX:'auto'}}>
           {seatsGenerator()}
         </div>
-        <Button 
-          className = "Seat-btn" 
-          onClick={() => {SelectSeats()}}
-          buttonStyle = 'primary'
-          buttonSize = 'btn--wide'
-          buttonColor = 'red'
-          > Pesan Kursi
-        </Button>
+        <ModalImage className='Seat-modal' small={img1} large={img} alt='harga'/>
+        <div className = "Seat-btn">
+          <Button 
+            onClick={() => {SelectSeats()}}
+            buttonStyle = 'primary'
+            buttonSize = 'btn--wide'
+            buttonColor = 'red'
+            > Pesan Kursi
+          </Button>
+        </div>
       </div>
     </div>
   );

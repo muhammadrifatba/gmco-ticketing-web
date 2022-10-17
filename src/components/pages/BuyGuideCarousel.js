@@ -47,7 +47,7 @@ function BuyGuideCarousel() {
             //     </div>
             // </Carousel>
 
-            <div className="guide-container">
+            <div className="guide-container" id="buyGuide">
                 <h1 className='BuyGuide-label'>Buying Guide</h1>
 
                 <Slider {...settings}>
