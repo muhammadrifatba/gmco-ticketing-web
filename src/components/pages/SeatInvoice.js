@@ -7,7 +7,7 @@ function Invoice() {
   const[seatName, setSeatName] = useState([])
   const[seatPrice, setSeatPrice] = useState([])
 
-  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
+  const URL = "https://dev.bekisar.net/api/v1/ticketing/order"
 
   useEffect(() => { 
     axios
