@@ -10,21 +10,22 @@ function TCModal() {
               <h3>Pembelian Tiket</h3>
               <ol>
                 <li>Pemesanan tiket HANYA untuk penggunaan pribadi.</li>
-                <li>Tiket yang dianggap sah adalah yang dibeli melalui laman www.????.com. Panitia tidak bertanggung jawab atas pembelian tiket melalui calo/platform yang bukan mitra resmi GMCO Live. </li>
-                <li>Satu tiket HANYA berlaku untuk satu orang.</li>
-                <li>Batas waktu transaksi pembayaran adalah 2 jam setelah pemesanan tiket (place order). Apabila pembeli tidak melalukan transaksi selama kurun waktu 2 jam setelah pemesanan tiket, maka pemesanan dianggap batal.</li>
-                <li>Apabila terdapat perubahan terkait alamat penerimaan tiket, seperti nomor telepon atau alamat email, harap menghubungi pihak panitia. Panitia akan menghubungi pembeli melalui email. Mohon untuk memastikan bahwa alamat email yang diberikan adalah valid dan terkini. Pembeli dimohon untuk menyadari terkait pengaturan filter email Anda yang mungkin menganggap email kami sebagai spam atau dialihkan menuju folder sampah Anda.</li>
-                <li>Jalannya konser dapat didokumentasikan atau direkam. Membeli tiket artinya setuju bahwa pembeli mengizinkan panitia untuk mendokumentasikan diri Anda sebagai anggota penonton. Apabila pembeli keberatan untuk didokumentasikan saat konser berlangsung, mohon untuk menghubungi salah satu anggota box office di tempat tersebut.</li>
+                <li>Tiket yang dianggap sah adalah yang dibeli melalui laman www.gmco-event.com. Panitia tidak bertanggung jawab atas pembelian tiket melalui calo/platform yang bukan mitra resmi GMCO Live.</li>
+                <li>Satu pembeli dapat melakukan pembelian maksimal 5 tiket.</li>
+                <li>Batas waktu transaksi pembayaran adalah 20 menit setelah pemilihan kursi. Apabila pembeli tidak melakukan transaksi selama kurun waktu tersebut, maka pemesanan dianggap batal.</li>
+                <li>Apabila terdapat perubahan terkait alamat penerimaan tiket, seperti nomor telepon atau alamat email, harap menghubungi contact person (Naya +622231764664).</li>
+                <li>Panitia akan menghubungi pembeli melalui email. Mohon untuk memastikan bahwa alamat email yang diberikan adalah valid dan terkini. Pembeli dimohon untuk menyadari terkait pengaturan filter email Anda yang mungkin menganggap email kami sebagai spam atau dialihkan menuju folder sampah Anda.</li>
+                <li>Jalannya konser dapat didokumentasikan atau direkam. Membeli tiket artinya setuju bahwa pembeli mengizinkan panitia untuk mendokumentasikan diri Anda sebagai anggota penonton.</li>
                 <li>Nomor tempat duduk yang sudah dibeli TIDAK dapat ditukar.</li>
-                <li>Seluruh penonton WAJIB  sudah melakukan vaksin COVID-19 minimum dosis dua (2)/booster yang dibuktikan pada aplikasi Peduli Lindungi.</li>
+                <li>Seluruh penonton WAJIB  sudah melakukan vaksin COVID-19 minimum dosis dua yang dibuktikan pada aplikasi Peduli Lindungi.</li>
                 <li>Penonton WAJIB memilki aplikasi Peduli Lindungi untuk melakukan check-in sebelum memasuki venue. </li>
               </ol>      
         </div>
         <div className="term-text-send">
           <h3>Pengiriman Tiket</h3>
           <ol>
-            <li>e-Ticket akan kami kirimkan kepada Anda melalui email dan dapat ditukarkan dengan gelang tiket pada tanggal 12 November 2022 pukul ???-??? WIB.</li>
-            <li>Kami tidak bertanggung jawab atas kelalaian pembeli tiket yang mengakibatkan e-ticket jatuh ke tangan orang lain</li>
+            <li>e-Ticket akan kami kirimkan kepada Anda melalui email dan dapat ditukarkan dengan gelang tiket pada tanggal 12 November 2022 mulai pukul 16.00 WIB.</li>
+            <li>Kami tidak bertanggung jawab atas kelalaian pembeli tiket yang mengakibatkan e-ticket jatuh ke tangan orang lain.</li>
           </ol>
         </div>
         <div className="term-cancel-return">
