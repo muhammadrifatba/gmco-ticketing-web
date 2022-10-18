@@ -37,6 +37,7 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
+  margin-left: 20px;
   height: 80px;
 }
 
@@ -137,7 +138,7 @@
   }
 
   .nav-links:hover {
-    color: #f00946;
+    color: #b5594b;
     transform: scale(1.2);
     transition: all 0.3s ease;
   }

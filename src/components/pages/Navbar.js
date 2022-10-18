@@ -79,7 +79,7 @@ function Navbar() {
                       buttonSize='btn--mobile'
                       onClick={closeMobileMenu}
                     >
-                      Buy Tikcet
+                      Buy Ticket
                     </Button>
                   </Link>
                 )}
