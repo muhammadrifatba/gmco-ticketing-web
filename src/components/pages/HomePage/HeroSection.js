@@ -17,7 +17,7 @@ function HeroSection() {
           <p class="multi-button_button">12/11/2022</p>
           <p class="multi-button_button"> Auditorium MM FEB UGM</p>
           <div className="hero-btn">
-            <Link to='/*'>
+            <Link to='/Seat'>
               <Button 
                 className='btn btn-a'
                 buttonStyle='primary'
