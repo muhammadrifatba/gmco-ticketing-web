@@ -18,7 +18,8 @@ const App = () => {
 
   useEffect(() => {
     const snapSrcUrl = "https://app.sandbox.midtrans.com/snap/snap.js"
-    const myMidtransClientKey = "SB-Mid-client-pKhjdsW23b2bUqjV"
+    // const myMidtransClientKey = "SB-Mid-client-pKhjdsW23b2bUqjV"
+    const myMidtransClientKey = "Mid-client-FwFVpZnrPBHcdiMY"
     
     const script = document.createElement('script');
     script.src = snapSrcUrl;
