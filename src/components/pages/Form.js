@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import FormInput from "./FormInput";
+import FormInput from "./FormInput"
+import Swal from 'sweetalert2';
 import "../style/Form.css";
 
 const App = () => {
-  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/order')
+  const URL = "https://gmco-event.com/api/v1/ticketing/order"
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -16,8 +17,9 @@ const App = () => {
   });
 
   useEffect(() => {
-    const snapSrcUrl = process.env.REACT_APP_snapSrcUrl;
-    const myMidtransClientKey = process.env.myMidtransClientKey;
+    const snapSrcUrl = "https://app.midtrans.com/snap/snap.js"
+    // const myMidtransClientKey = "SB-Mid-client-pKhjdsW23b2bUqjV"
+    const myMidtransClientKey = "Mid-client-FwFVpZnrPBHcdiMY"
     
     const script = document.createElement('script');
     script.src = snapSrcUrl;
@@ -84,28 +86,32 @@ const App = () => {
         {withCredentials:true}
       )
       const token = res.data.token
-      console.log(res.data);
+      console.log(res.data)
+
+      if (res.data.status === 'fail'){
+        Swal.fire((res.data.message).toString())
+      }
 
       window.snap.pay(token, {
         onSuccess: function(result){
-          alert("payment success!, check your email"); console.log(result);
-          setTimeout(() => navigate("/FI"), 1000)
-          
+          Swal.fire({
+            title: "Pembayaran Berhasil",
+            text: "Cek Email untuk Tiket dan Info Lebih Lanjut",
+          })
+          navigate("/")     
         },
         onPending: function(result){
-          alert("wating your payment!"); console.log(result);
-          
+          Swal.fire("Menunggu Pembayaran!");         
         },
         onError: function(result){
-          alert("payment failed!"); console.log(result);
-          
+          Swal.fire("Pembayaran Gagal!");
         },
         onClose: function(){
-          alert('you closed the popup without finishing the payment');
-          
+          Swal.fire('Anda Menutup Popup Sebelum Menyelesaikan Pembayaran');
         }
       })
     } catch (err) {
+      console.log("error");
       console.error(err);
     }
   };

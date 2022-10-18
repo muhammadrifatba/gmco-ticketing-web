@@ -1,8 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import { HashLink as HLink } from 'react-router-hash-link';
 import { IconContext } from 'react-icons/lib';
 import {FaBars, FaTimes} from 'react-icons/fa';
-import logo from '../../images/Logo-FIX.png';
+import logo from '../../images/Logo-FIX.webp';
 import {Button} from './utility/Button'
 import '../style/Navbar.css'
 
@@ -60,7 +61,7 @@ function Navbar() {
           </li>
 
           <li className='nav-item'>
-            <Link to='/1'className='nav-links' onClick={closeMobileMenu}>Buying Guide</Link>
+            <HLink to='/#buyGuide'className='nav-links' onClick={closeMobileMenu}>Buying Guide</HLink>
           </li>
 
           <li className='nav-item'>
@@ -78,7 +79,7 @@ function Navbar() {
                       buttonSize='btn--mobile'
                       onClick={closeMobileMenu}
                     >
-                      Buy Tikcet
+                      Buy Ticket
                     </Button>
                   </Link>
                 )}

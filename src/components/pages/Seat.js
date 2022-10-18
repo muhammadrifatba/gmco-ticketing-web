@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './utility/Button';
-import axios from 'axios'
+import axios from 'axios';
 import PageHeader from './utility/PageHeader' 
+import Swal from 'sweetalert2';
+import ModalImage from "react-modal-image";
+import img from '../../images/seatprice.webp'
+import img1 from '../../images/harga-logo.svg'
 import '../style/Seat.css'
 
 function SeatDum() {
@@ -19,7 +23,7 @@ function SeatDum() {
   const seatsRows       = ['A', 'B', 'C', 'D', 'E', 'F', 'G',  '', 'H', 'I',  'J',  'K',  'L',  'M',   '',  'O'];
 
   // Get Post URL
-  const URL = (process.env.REACT_APP_URL).concat('/api/v1/ticketing/booking')
+  const URL = "https://gmco-event.com/api/v1/ticketing/booking"
 
   // send Post Seat
   const sendPostSeat = async (uniqueSeats) => {
@@ -127,14 +131,17 @@ function SeatDum() {
       OnlyUnique(seatsOdd)
     }
 
-    if(uniqueSeats.length !== 0)
+    if(uniqueSeats.length !== 0 && uniqueSeats.length < 6)
     {
       console.log("Final Selected: " + uniqueSeats);
       sendPostSeat(uniqueSeats)
-      setTimeout(() => navigate("/FI"), 1000)
+      setTimeout(() => navigate("/FI"), 500)
+    }
+    else if(uniqueSeats.length > 5){
+      Swal.fire('Jumlah pembelian maks adalah 5 tiket')
     }
     else {
-      alert('Please Select Seats')
+      Swal.fire('Please Select Seats')
     }
   };
   
@@ -300,7 +307,7 @@ function SeatDum() {
   // Run HTML
   return (
     <div className='Seat-body'>
-      <PageHeader title={"Movie Seat Selection"} bgColour="true"/>
+      <PageHeader title={"Seat Selection"} bgColour="true"/>
       <div className="Seat-container">
         <ul className="Seat-type">
           <li className="smallBox greenBox">Kursi Dipilih</li>
@@ -313,14 +320,16 @@ function SeatDum() {
         <div className="Seat-structure" style={{overflowX:'auto'}}>
           {seatsGenerator()}
         </div>
-        <Button 
-          className = "Seat-btn" 
-          onClick={() => {SelectSeats()}}
-          buttonStyle = 'primary'
-          buttonSize = 'btn--wide'
-          buttonColor = 'red'
-          > Pesan Kursi
-        </Button>
+        <ModalImage className='Seat-modal' small={img1} large={img} alt='harga'/>
+        <div className = "Seat-btn">
+          <Button 
+            onClick={() => {SelectSeats()}}
+            buttonStyle = 'primary'
+            buttonSize = 'btn--wide'
+            buttonColor = 'red'
+            > Pesan Kursi
+          </Button>
+        </div>
       </div>
     </div>
   );

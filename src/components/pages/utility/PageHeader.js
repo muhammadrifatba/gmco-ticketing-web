@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../../../images/solidcolorgreen.png';
+import image from '../../../images/solidcolorgreen.webp';
 import '../../style/PageHeader.css'
 
 function PageHeader ({title,bgColour})  {

@@ -1,4 +1,21 @@
-.panitia{
-  height: auto;
-  width: 100%;
+.guide-container {
+  text-align: center;
+  padding: 10%;
+  background: #dc8e75;
+  box-shadow: 0 8px 12px 0 rgba(9, 12, 53, 0.37)
 }
+.BuyGuide-label{
+  margin-bottom: 5%;
+  margin-top: -5%;
+  color: #ffffff;
+  
+   ;
+}
+
+.slick-slide img {
+  margin: auto;
+  /* box-shadow: ; */
+  
+}
+
+
