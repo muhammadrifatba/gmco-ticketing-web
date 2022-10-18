@@ -27,7 +27,7 @@ export const homeObjTwo = {
   imgStart: '',
   img: require ('../../../images/ticket.webp'),
   alt: 'images/logo_gmco.jpeg',
-  link: '/#/Seat'
+  link: '/#/*'
 };
 
 export const BlogObjOne = {
