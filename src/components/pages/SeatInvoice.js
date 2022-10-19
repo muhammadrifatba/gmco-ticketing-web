@@ -9,7 +9,7 @@ function Invoice() {
   const[seatPrice, setSeatPrice] = useState([])
   const navigate = useNavigate();
 
-  const URL = "https://dev.bekisar.net/api/v1/ticketing/order"
+  const URL = "https://gmco-event.com/api/v1/ticketing/order"
 
   useEffect(() => { 
     axios
